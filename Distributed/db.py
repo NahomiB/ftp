@@ -1,19 +1,28 @@
-import sqlite3
+from sqlalchemy import create_engine, Column, Integer, Text, LargeBinary
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.ext.declarative import declarative_base
 
-# Crear la conexión a la base de datos
-conn = sqlite3.connect('mi_base_de_datos.db')
-cursor = conn.cursor()
+# Crear el motor de base de datos
+engine = create_engine('sqlite:///mi_base_de_datos.db')
 
-# Crear la tabla (si aún no existe)
-cursor.execute("""
-CREATE TABLE IF NOT EXISTS mi_tabla (
-  id INTEGER,
-  titule TEXT,
-  document BLOB,
-  nodo_id INTEGER,
-  PRIMARY KEY (id)
-)
-""")
+# Crear una sesión
+Session = sessionmaker(bind=engine)
+session = Session()
+
+# Crear la base declarativa
+Base = declarative_base()
+
+# Definir el modelo de la tabla
+class MiTabla(Base):
+    __tablename__ = 'mi_tabla'
+
+    id = Column(Integer, primary_key=True)
+    titule = Column(Text)
+    document = Column(LargeBinary)
+    nodo_id = Column(Integer)
+
+# Crear la tabla si no existe
+Base.metadata.create_all(engine)
 
 # Definir un objeto de Python
 class Documento:
@@ -27,11 +36,9 @@ class Documento:
 mi_documento = Documento(1, "Mi título", b'\x01\x23\x45\x67\x89\xAB\xCD\xEF', 456)
 
 # Insertar el objeto en la tabla
-cursor.execute("INSERT INTO mi_tabla (id, titule, document, nodo_id) VALUES (?, ?, ?, ?)", 
-               (mi_documento.id, mi_documento.titule, mi_documento.document, mi_documento.nodo_id))
+nueva_fila = MiTabla(id=mi_documento.id, titule=mi_documento.titule, document=mi_documento.document, nodo_id=mi_documento.nodo_id)
+session.add(nueva_fila)
+session.commit()
 
-# Guardar los cambios
-conn.commit()
-
-# Cerrar la conexión
-conn.close()
+# Cerrar la sesión
+session.close()
