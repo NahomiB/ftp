@@ -44,7 +44,7 @@ node2 = ChordNode('localhost', 8001)
 node2.join(node1)
 chord_nodes = [node1, node2]
 
-ftp_server = FTPServer('localhost', 21, chord_nodes)
+ftp_server = FTPServer('localhost', 8000, chord_nodes)
 ftp_server.start()
 
 # Usar el servidor FTP
