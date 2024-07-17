@@ -8,7 +8,7 @@ import logging
 from helper.protocol_codes import *
 from helper.logguer import log_message
 from concurrent.futures import ThreadPoolExecutor, TimeoutError
-import zmq
+#import zmq
 import pickle
 
 #logger = logging.getLogger(__name__)

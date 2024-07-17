@@ -1,0 +1,688 @@
+2024-07-17 19:19:34,294 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:8,172.17.0.3,8001 predecessor None
+2024-07-17 19:19:34,294 - INFO - logguer.py - 71 - fix_fingers - La finger table [ChordNodeReference:8,172.17.0.3,8001, ChordNodeReference:8,172.17.0.3,8001, ChordNodeReference:8,172.17.0.3,8001]
+2024-07-17 19:19:34,297 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:19:34,306 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:19:34,306 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:19:34,309 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 19:19:34,327 - INFO - logguer.py - 71 - _search_successor - Voy a enviar un broadcast para buscar un sucesor 
+2024-07-17 19:19:34,337 - INFO - logguer.py - 71 - show - Mi predecesor es None con ip None 
+2024-07-17 19:19:34,375 - INFO - logguer.py - 71 - check_predecessor - Error tratando de comunicar con el predecesor 
+2024-07-17 19:19:34,376 - INFO - logguer.py - 71 - _send_broadcast - Voy a enviar un broadcast con op 10 y data ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:19:34,388 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:19:34,399 - INFO - logguer.py - 71 - fix_fingers - El nodo 8 no se encuentra en fix fingers
+2024-07-17 19:19:34,427 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 19:19:34,437 - INFO - logguer.py - 71 - show - Todavia no tengo sucesor
+2024-07-17 19:19:34,443 - INFO - logguer.py - 71 - _search_successor - Enviado el broadcast
+2024-07-17 19:19:34,464 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 19:19:34,475 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:19:34,492 - INFO - logguer.py - 71 - _send_broadcast - Acabo de enviar un broadcast con op: 10 y data ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:19:34,508 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.3', 45153): (10, ChordNodeReference:8,172.17.0.3,8001)
+2024-07-17 19:19:34,530 - INFO - logguer.py - 71 - _search_successor - Enviado el broadcas para buscar succ
+2024-07-17 19:19:34,542 - INFO - logguer.py - 71 - _search_successor - Se actualizo el Is_Search_Succ ahora es True
+2024-07-17 19:19:35,021 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:19:35,153 - INFO - logguer.py - 71 - server_handle - El len de la respuesta a enviar es de 27 que era un Enviando el string error  buscando la opcion 5
+2024-07-17 19:19:37,527 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:19:37,541 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:19:37,549 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:19:37,557 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:19:37,562 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 19:19:37,563 - INFO - logguer.py - 71 - show - Todavia no tengo sucesor
+2024-07-17 19:19:37,582 - INFO - logguer.py - 71 - _search_successor - Voy a enviar un broadcast para buscar un sucesor 
+2024-07-17 19:19:37,598 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 19:19:37,609 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:19:37,633 - INFO - logguer.py - 71 - _send_broadcast - Voy a enviar un broadcast con op 10 y data ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:19:37,651 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 19:19:37,679 - INFO - logguer.py - 71 - _search_successor - Enviado el broadcast
+2024-07-17 19:19:37,680 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.2', 45007): (10, ChordNodeReference:10,172.17.0.2,8001)
+2024-07-17 19:19:37,691 - INFO - logguer.py - 71 - _send_broadcast - Acabo de enviar un broadcast con op: 10 y data ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:19:37,707 - INFO - logguer.py - 71 - _search_successor - Enviado el broadcas para buscar succ
+2024-07-17 19:19:37,707 - INFO - logguer.py - 71 - _recive_broadcastt - Se recibio desde otro nodo
+2024-07-17 19:19:37,715 - INFO - logguer.py - 71 - _search_successor - Se actualizo el Is_Search_Succ ahora es True
+2024-07-17 19:19:37,721 - INFO - logguer.py - 71 - _recive_broadcastt - Este ahora es el mensaje (10, ChordNodeReference:10,172.17.0.2,8001) que tiene un tipo <class 'tuple'>
+2024-07-17 19:19:37,748 - INFO - logguer.py - 71 - _recive_broadcastt - LLego la respuesta con opcion 10 de tipo <class 'int'>
+2024-07-17 19:19:37,755 - INFO - logguer.py - 71 - _recive_broadcastt - El mensaje recibido al broadcast era para join desde el ip 172.17.0.2 de tipo <class 'str'>
+2024-07-17 19:19:37,770 - INFO - logguer.py - 71 - join - El nodo 10 mando solicitud de unirse como predecesor
+2024-07-17 19:19:37,782 - INFO - logguer.py - 71 - join - Acabo de actualizar mi sucesor al nodo 10
+2024-07-17 19:19:37,888 - INFO - logguer.py - 71 - _send_data - La respuesta recibida del nodo 10 es Errrorrrrrr  de tipo <class 'str'>
+2024-07-17 19:19:37,913 - INFO - logguer.py - 71 - join - Mande a notificar a mi nuevo sucesor :10 para que me haga su predecesor 
+2024-07-17 19:19:39,305 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:19:39,311 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:19:39,313 - INFO - logguer.py - 71 - stabilize_finger - Chequeando estabilidad de los fingues
+2024-07-17 19:19:39,354 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:19:39,383 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:19:39,384 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:19:39,506 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:19:39,513 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:19:40,034 - INFO - logguer.py - 71 - fix_fingers - La finger table [ChordNodeReference:8,172.17.0.3,8001, ChordNodeReference:8,172.17.0.3,8001, ChordNodeReference:8,172.17.0.3,8001]
+2024-07-17 19:19:40,663 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:19:40,680 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:19:40,686 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:19:40,693 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:19:40,705 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:19:40,737 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:19:40,946 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 19:19:40,951 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 19:19:40,959 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 19:19:40,966 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.3', 46085): (10, ChordNodeReference:8,172.17.0.3,8001)
+2024-07-17 19:19:41,360 - INFO - logguer.py - 71 - server_handle - El len de la respuesta a enviar es de 27 que era un Enviando el string error  buscando la opcion 5
+2024-07-17 19:19:43,728 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:19:43,750 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:19:43,751 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:19:43,781 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:19:43,785 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:19:43,798 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:19:43,984 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 19:19:44,407 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:19:44,469 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:19:44,491 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:19:44,536 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:19:44,588 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:19:44,674 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:19:44,695 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:19:46,780 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:19:46,811 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:19:46,817 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:19:46,840 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:19:46,858 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:19:46,864 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:19:49,523 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:19:49,579 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:19:49,603 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:19:49,709 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:19:49,769 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:19:49,804 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:19:49,828 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:19:49,828 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:19:49,868 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:19:49,874 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:19:49,881 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:19:49,883 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:19:49,884 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:19:52,828 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:19:52,889 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:19:52,907 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:19:52,918 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:19:52,932 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:19:52,933 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:19:54,640 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:19:54,675 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:19:54,689 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:19:54,846 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:19:54,899 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:19:54,963 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:19:54,969 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:19:55,832 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:19:55,940 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:19:55,943 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:19:55,945 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:19:55,948 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:19:55,967 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:19:58,841 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:19:59,007 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:19:59,015 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:19:59,029 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:19:59,054 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:19:59,076 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:19:59,713 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:19:59,743 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:19:59,759 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:19:59,986 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:20:00,031 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:00,069 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:20:00,081 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:20:01,863 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:02,101 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:02,113 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:02,125 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:02,131 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:02,153 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:04,781 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:20:04,833 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:20:04,838 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:04,889 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:05,094 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:20:05,135 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:05,187 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:20:05,195 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:05,196 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:20:05,196 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:05,228 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:05,240 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:05,257 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:07,920 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:08,268 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:08,307 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:08,315 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:08,329 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:08,347 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:09,860 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:20:09,883 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:20:09,900 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:10,228 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:20:10,267 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:10,344 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:20:10,355 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:20:10,950 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:11,376 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:11,378 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:11,385 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:11,410 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:11,418 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:13,989 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:14,428 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:14,446 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:14,447 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:14,455 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:14,473 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:14,923 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:20:14,945 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:20:14,952 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:15,369 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:20:15,414 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:15,501 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:20:15,505 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:20:17,001 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:17,486 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:17,499 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:17,512 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:17,531 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:17,533 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:19,962 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:20:20,008 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:20:20,016 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:20,023 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:20,539 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:20,553 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:20,560 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:20,563 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:20,575 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:20:20,575 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:20,639 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:20,726 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:20:20,738 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:20:23,064 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:23,635 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:23,642 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:23,674 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:23,680 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:23,686 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:25,048 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:20:25,124 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:20:25,130 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:25,763 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:20:25,813 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:25,890 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:20:25,906 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:20:26,075 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:26,704 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:26,710 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:26,717 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:26,723 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:26,724 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:29,093 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:29,724 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:29,736 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:29,749 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:29,755 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:29,772 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:30,118 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:20:30,137 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:20:30,143 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:30,891 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:20:30,930 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:30,997 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:20:31,009 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:20:32,101 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:32,799 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:32,814 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:32,837 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:32,878 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:32,884 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:35,129 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:35,160 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:20:35,202 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:20:35,230 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:35,905 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:35,917 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:35,945 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:35,957 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:35,972 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:36,018 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:20:36,060 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:36,114 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:20:36,127 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:20:38,143 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:38,984 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:38,993 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:39,010 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:39,027 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:39,061 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:40,241 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:20:40,272 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:20:40,278 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:41,148 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:20:41,153 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:41,173 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:41,251 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:20:41,257 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:20:42,076 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:42,092 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:42,098 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:42,104 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:42,116 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:44,159 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:45,131 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:45,142 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:45,144 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:45,159 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:45,167 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:45,297 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:20:45,332 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:20:45,349 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:46,277 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:20:46,344 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:46,415 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:20:46,421 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:20:47,177 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:48,216 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:48,223 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:48,238 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:48,267 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:48,283 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:50,201 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:50,365 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:20:50,485 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:20:50,492 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:51,288 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:51,305 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:51,306 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:51,314 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:51,327 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:51,432 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:20:51,480 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:51,552 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:20:51,558 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:20:53,226 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:54,331 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:54,334 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:54,337 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:54,347 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:54,357 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:55,507 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:20:55,554 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:20:55,567 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:56,256 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:20:56,562 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:20:56,587 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:20:56,686 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:20:56,693 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:20:57,372 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:20:57,385 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:20:57,408 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:20:57,440 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:20:57,447 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:20:59,273 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:00,505 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:00,511 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:21:00,529 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:00,536 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:00,543 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:00,585 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:21:00,614 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:21:00,631 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:01,739 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:21:01,773 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:01,842 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:21:01,848 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:21:02,311 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:03,566 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:03,579 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:21:03,591 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:03,592 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:03,598 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:05,320 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:05,649 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:21:05,710 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:21:05,717 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:06,607 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:06,615 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:21:06,631 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:06,638 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:06,652 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:06,866 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:21:06,891 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:06,935 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:21:06,936 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:21:08,330 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:09,663 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:09,691 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:21:09,716 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:09,725 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:09,736 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:10,735 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:21:10,763 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:21:10,777 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:11,341 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:11,957 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:21:12,047 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:12,154 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:21:12,165 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:21:12,751 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:12,758 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:21:12,764 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:12,766 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:12,778 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:14,365 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:15,790 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:15,790 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:21:15,805 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:21:15,826 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:15,838 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:21:15,845 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:15,852 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:15,855 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:16,032 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 19:21:16,043 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 19:21:16,045 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.4', 42496): (10, ChordNodeReference:7,172.17.0.4,8001)
+2024-07-17 19:21:16,066 - INFO - logguer.py - 71 - _recive_broadcastt - Se recibio desde otro nodo
+2024-07-17 19:21:16,074 - INFO - logguer.py - 71 - _recive_broadcastt - Este ahora es el mensaje (10, ChordNodeReference:7,172.17.0.4,8001) que tiene un tipo <class 'tuple'>
+2024-07-17 19:21:16,084 - INFO - logguer.py - 71 - _recive_broadcastt - LLego la respuesta con opcion 10 de tipo <class 'int'>
+2024-07-17 19:21:16,096 - INFO - logguer.py - 71 - _recive_broadcastt - El mensaje recibido al broadcast era para join desde el ip 172.17.0.4 de tipo <class 'str'>
+2024-07-17 19:21:16,098 - INFO - logguer.py - 71 - join - El nodo 7 mando solicitud de unirse como predecesor
+2024-07-17 19:21:16,105 - INFO - logguer.py - 71 - join - Entro aca la peticion del nodo 7
+2024-07-17 19:21:17,184 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:21:17,227 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:17,252 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:21:17,377 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:18,902 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:18,934 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:21:18,942 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:18,989 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:19,038 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:19,123 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 19:21:19,205 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 19:21:19,215 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 19:21:19,218 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.4', 38025): (10, ChordNodeReference:7,172.17.0.4,8001)
+2024-07-17 19:21:19,230 - INFO - logguer.py - 71 - _recive_broadcastt - Se recibio desde otro nodo
+2024-07-17 19:21:19,241 - INFO - logguer.py - 71 - _recive_broadcastt - Este ahora es el mensaje (10, ChordNodeReference:7,172.17.0.4,8001) que tiene un tipo <class 'tuple'>
+2024-07-17 19:21:19,261 - INFO - logguer.py - 71 - _recive_broadcastt - LLego la respuesta con opcion 10 de tipo <class 'int'>
+2024-07-17 19:21:19,266 - INFO - logguer.py - 71 - _recive_broadcastt - El mensaje recibido al broadcast era para join desde el ip 172.17.0.4 de tipo <class 'str'>
+2024-07-17 19:21:19,286 - INFO - logguer.py - 71 - join - El nodo 7 mando solicitud de unirse como predecesor
+2024-07-17 19:21:19,288 - INFO - logguer.py - 71 - join - Entro aca la peticion del nodo 7
+2024-07-17 19:21:20,398 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:20,881 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:21:20,918 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:21:20,920 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:22,051 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:22,052 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:21:22,056 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:22,073 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:22,080 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:22,269 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:21:22,306 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 19:21:22,307 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:22,324 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 19:21:22,325 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:21:22,332 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 19:21:22,378 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.4', 54639): (10, ChordNodeReference:7,172.17.0.4,8001)
+2024-07-17 19:21:22,395 - INFO - logguer.py - 71 - _recive_broadcastt - Se recibio desde otro nodo
+2024-07-17 19:21:22,398 - INFO - logguer.py - 71 - _recive_broadcastt - Este ahora es el mensaje (10, ChordNodeReference:7,172.17.0.4,8001) que tiene un tipo <class 'tuple'>
+2024-07-17 19:21:22,413 - INFO - logguer.py - 71 - _recive_broadcastt - LLego la respuesta con opcion 10 de tipo <class 'int'>
+2024-07-17 19:21:22,417 - INFO - logguer.py - 71 - _recive_broadcastt - El mensaje recibido al broadcast era para join desde el ip 172.17.0.4 de tipo <class 'str'>
+2024-07-17 19:21:22,421 - INFO - logguer.py - 71 - join - El nodo 7 mando solicitud de unirse como predecesor
+2024-07-17 19:21:22,432 - INFO - logguer.py - 71 - join - Entro aca la peticion del nodo 7
+2024-07-17 19:21:23,435 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:25,099 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:25,101 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:21:25,115 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:25,123 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:25,145 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:25,471 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 19:21:25,489 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 19:21:25,506 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 19:21:25,514 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.4', 56346): (10, ChordNodeReference:7,172.17.0.4,8001)
+2024-07-17 19:21:25,524 - INFO - logguer.py - 71 - _recive_broadcastt - Se recibio desde otro nodo
+2024-07-17 19:21:25,531 - INFO - logguer.py - 71 - _recive_broadcastt - Este ahora es el mensaje (10, ChordNodeReference:7,172.17.0.4,8001) que tiene un tipo <class 'tuple'>
+2024-07-17 19:21:25,538 - INFO - logguer.py - 71 - _recive_broadcastt - LLego la respuesta con opcion 10 de tipo <class 'int'>
+2024-07-17 19:21:25,543 - INFO - logguer.py - 71 - _recive_broadcastt - El mensaje recibido al broadcast era para join desde el ip 172.17.0.4 de tipo <class 'str'>
+2024-07-17 19:21:25,555 - INFO - logguer.py - 71 - join - El nodo 7 mando solicitud de unirse como predecesor
+2024-07-17 19:21:25,567 - INFO - logguer.py - 71 - join - Entro aca la peticion del nodo 7
+2024-07-17 19:21:25,934 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:21:25,966 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:21:25,987 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:26,471 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:27,360 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:21:27,415 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:27,472 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:21:28,175 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:28,181 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:21:28,184 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:28,191 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:28,205 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:28,580 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 19:21:28,618 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 19:21:28,654 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 19:21:28,658 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.4', 33750): (10, ChordNodeReference:7,172.17.0.4,8001)
+2024-07-17 19:21:28,695 - INFO - logguer.py - 71 - _recive_broadcastt - Se recibio desde otro nodo
+2024-07-17 19:21:28,703 - INFO - logguer.py - 71 - _recive_broadcastt - Este ahora es el mensaje (10, ChordNodeReference:7,172.17.0.4,8001) que tiene un tipo <class 'tuple'>
+2024-07-17 19:21:28,728 - INFO - logguer.py - 71 - _recive_broadcastt - LLego la respuesta con opcion 10 de tipo <class 'int'>
+2024-07-17 19:21:28,761 - INFO - logguer.py - 71 - _recive_broadcastt - El mensaje recibido al broadcast era para join desde el ip 172.17.0.4 de tipo <class 'str'>
+2024-07-17 19:21:28,800 - INFO - logguer.py - 71 - join - El nodo 7 mando solicitud de unirse como predecesor
+2024-07-17 19:21:28,822 - INFO - logguer.py - 71 - join - Entro aca la peticion del nodo 7
+2024-07-17 19:21:29,494 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:31,043 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:21:31,107 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:21:31,132 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:31,239 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:31,271 - INFO - logguer.py - 71 - show - Mi predecesor es 10 con ip 172.17.0.2 
+2024-07-17 19:21:31,274 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:31,286 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:31,287 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:31,854 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 19:21:31,867 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 19:21:31,871 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 19:21:31,875 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.4', 46236): (10, ChordNodeReference:7,172.17.0.4,8001)
+2024-07-17 19:21:31,892 - INFO - logguer.py - 71 - _recive_broadcastt - Se recibio desde otro nodo
+2024-07-17 19:21:31,900 - INFO - logguer.py - 71 - _recive_broadcastt - Este ahora es el mensaje (10, ChordNodeReference:7,172.17.0.4,8001) que tiene un tipo <class 'tuple'>
+2024-07-17 19:21:31,913 - INFO - logguer.py - 71 - _recive_broadcastt - LLego la respuesta con opcion 10 de tipo <class 'int'>
+2024-07-17 19:21:31,920 - INFO - logguer.py - 71 - _recive_broadcastt - El mensaje recibido al broadcast era para join desde el ip 172.17.0.4 de tipo <class 'str'>
+2024-07-17 19:21:31,938 - INFO - logguer.py - 71 - join - El nodo 7 mando solicitud de unirse como predecesor
+2024-07-17 19:21:31,947 - INFO - logguer.py - 71 - join - Entro aca la peticion del nodo 7
+2024-07-17 19:21:32,502 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:21:32,540 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:32,548 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:32,596 - ERROR - logguer.py - 71 - check_predecessor - No se restablecio conexion con el predecesor ChordNodeReference:10,172.17.0.2,8001 
+2024-07-17 19:21:32,611 - ERROR - logguer.py - 71 - check_predecessor - Se desconecto el predecesor con id 10 e ip 172.17.0.2,error:No se restablecio conexion con el predecesor ChordNodeReference:10,172.17.0.2,8001 
+2024-07-17 19:21:34,309 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:34,327 - INFO - logguer.py - 71 - show - Mi predecesor es None con ip None 
+2024-07-17 19:21:34,336 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:34,349 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:34,353 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:34,959 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 19:21:34,975 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 19:21:34,990 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 19:21:34,992 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.4', 59712): (10, ChordNodeReference:7,172.17.0.4,8001)
+2024-07-17 19:21:34,994 - INFO - logguer.py - 71 - _recive_broadcastt - Se recibio desde otro nodo
+2024-07-17 19:21:35,001 - INFO - logguer.py - 71 - _recive_broadcastt - Este ahora es el mensaje (10, ChordNodeReference:7,172.17.0.4,8001) que tiene un tipo <class 'tuple'>
+2024-07-17 19:21:35,013 - INFO - logguer.py - 71 - _recive_broadcastt - LLego la respuesta con opcion 10 de tipo <class 'int'>
+2024-07-17 19:21:35,023 - INFO - logguer.py - 71 - _recive_broadcastt - El mensaje recibido al broadcast era para join desde el ip 172.17.0.4 de tipo <class 'str'>
+2024-07-17 19:21:35,031 - INFO - logguer.py - 71 - join - El nodo 7 mando solicitud de unirse como predecesor
+2024-07-17 19:21:35,043 - INFO - logguer.py - 71 - join - Entro aca la peticion del nodo 7
+2024-07-17 19:21:35,045 - INFO - logguer.py - 71 - join - Acabo de actualizar mi sucesor al nodo 7
+2024-07-17 19:21:35,084 - INFO - logguer.py - 71 - _send_data - La respuesta recibida del nodo 7 es Errrorrrrrr  de tipo <class 'str'>
+2024-07-17 19:21:35,091 - INFO - logguer.py - 71 - join - Mande a notificar a mi nuevo sucesor :7 para que me haga su predecesor 
+2024-07-17 19:21:35,131 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:7,172.17.0.4,8001
+2024-07-17 19:21:35,558 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:35,570 - INFO - logguer.py - 71 - _search_successor - Voy a enviar un broadcast para buscar un sucesor 
+2024-07-17 19:21:35,583 - INFO - logguer.py - 71 - _send_broadcast - Voy a enviar un broadcast con op 10 y data ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:21:35,608 - INFO - logguer.py - 71 - _search_successor - Enviado el broadcast
+2024-07-17 19:21:35,626 - INFO - logguer.py - 71 - _send_broadcast - Acabo de enviar un broadcast con op: 10 y data ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:21:35,632 - INFO - logguer.py - 71 - _search_successor - Enviado el broadcas para buscar succ
+2024-07-17 19:21:35,645 - INFO - logguer.py - 71 - _search_successor - Se actualizo el Is_Search_Succ ahora es True
+2024-07-17 19:21:36,160 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:21:36,190 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:36,197 - INFO - logguer.py - 71 - stabilize - Otra vez x ChordNodeReference:10,172.17.0.2,8001
+2024-07-17 19:21:36,209 - INFO - logguer.py - 71 - stabilize - A Notificar
+2024-07-17 19:21:36,256 - INFO - logguer.py - 71 - _send_data - La respuesta recibida del nodo 10 es Errrorrrrrr  de tipo <class 'str'>
+2024-07-17 19:21:36,273 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor None
+2024-07-17 19:21:37,363 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:37,375 - INFO - logguer.py - 71 - show - Mi predecesor es None con ip None 
+2024-07-17 19:21:37,388 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:37,390 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:37,404 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:37,644 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:21:38,118 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 19:21:38,125 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 19:21:38,135 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 19:21:38,142 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.3', 58622): (10, ChordNodeReference:8,172.17.0.3,8001)
+2024-07-17 19:21:38,286 - INFO - logguer.py - 71 - server_handle - El len de la respuesta a enviar es de 27 que era un Enviando el string error  buscando la opcion 5
+2024-07-17 19:21:38,663 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:40,168 - INFO - logguer.py - 71 - fix_fingers - La finger table [ChordNodeReference:8,172.17.0.3,8001, ChordNodeReference:8,172.17.0.3,8001, ChordNodeReference:7,172.17.0.4,8001]
+2024-07-17 19:21:40,219 - INFO - logguer.py - 71 - stabilize_finger - Chequeando estabilidad de los fingues
+2024-07-17 19:21:40,267 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:40,329 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:40,372 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:40,416 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:40,425 - INFO - logguer.py - 71 - show - Mi predecesor es 7 con ip 172.17.0.4 
+2024-07-17 19:21:40,426 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:40,438 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:40,446 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:40,456 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:40,505 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:40,581 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:40,673 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:40,753 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:40,875 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:41,039 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:41,073 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:41,121 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:41,155 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 19:21:41,161 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 19:21:41,163 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:41,188 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 19:21:41,213 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.4', 34700): (10, ChordNodeReference:7,172.17.0.4,8001)
+2024-07-17 19:21:41,227 - INFO - logguer.py - 71 - _recive_broadcastt - Se recibio desde otro nodo
+2024-07-17 19:21:41,244 - INFO - logguer.py - 71 - _recive_broadcastt - Este ahora es el mensaje (10, ChordNodeReference:7,172.17.0.4,8001) que tiene un tipo <class 'tuple'>
+2024-07-17 19:21:41,246 - INFO - logguer.py - 71 - _recive_broadcastt - LLego la respuesta con opcion 10 de tipo <class 'int'>
+2024-07-17 19:21:41,258 - INFO - logguer.py - 71 - _recive_broadcastt - El mensaje recibido al broadcast era para join desde el ip 172.17.0.4 de tipo <class 'str'>
+2024-07-17 19:21:41,258 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:41,265 - INFO - logguer.py - 71 - join - El nodo 7 mando solicitud de unirse como predecesor
+2024-07-17 19:21:41,294 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:21:41,311 - INFO - logguer.py - 71 - join - Entro aca la peticion del nodo 7
+2024-07-17 19:21:41,354 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:21:41,355 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:41,355 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:7,172.17.0.4,8001
+2024-07-17 19:21:41,426 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:41,552 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:41,614 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:41,705 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:41,715 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:41,820 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:41,890 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:42,004 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:42,118 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:42,183 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:42,284 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:42,336 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:42,410 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:42,534 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:42,612 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:42,660 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:21:42,671 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:42,748 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:7,172.17.0.4,8001
+2024-07-17 19:21:42,800 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:42,868 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:21:42,890 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:42,907 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:21:42,963 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:43,004 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:43,104 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:43,278 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:43,373 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:43,443 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:43,466 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:43,468 - INFO - logguer.py - 71 - show - Mi predecesor es 7 con ip 172.17.0.4 
+2024-07-17 19:21:43,487 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:43,495 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:43,512 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:43,525 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:43,627 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:43,707 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:43,782 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:43,898 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:44,015 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:44,069 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:44,171 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:44,271 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:44,332 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 19:21:44,332 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:44,421 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:44,511 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:44,587 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:44,642 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:44,722 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:44,744 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:44,843 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:44,922 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:44,998 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:45,109 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:45,188 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:45,302 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:45,475 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:45,678 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:45,751 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:45,845 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:45,999 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:46,110 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:46,195 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:46,274 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:46,366 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:46,388 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 19:21:46,440 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:8,172.17.0.3,8001
+2024-07-17 19:21:46,452 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:10,172.17.0.2,8001 predecessor ChordNodeReference:7,172.17.0.4,8001
+2024-07-17 19:21:46,473 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:46,540 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:46,548 - INFO - logguer.py - 71 - show - Mi predecesor es 7 con ip 172.17.0.4 
+2024-07-17 19:21:46,555 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:46,562 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:46,564 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 19:21:46,578 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:46,697 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:46,778 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:46,876 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:46,969 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:47,062 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:47,210 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:47,291 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:47,384 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:47,521 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:47,631 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:47,755 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 19:21:47,771 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:47,955 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 19:21:48,020 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:48,052 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:7,172.17.0.4,8001
+2024-07-17 19:21:48,108 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:48,171 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 8
+2024-07-17 19:21:48,172 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 19:21:48,223 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:48,292 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:48,382 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:48,491 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:48,566 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:48,615 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:48,700 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:48,772 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:48,886 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:48,948 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:49,050 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:49,151 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:49,237 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:49,332 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:49,465 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:49,548 - INFO - logguer.py - 71 - _send_data - El data 7 es de tipo <class 'int'>
+2024-07-17 19:21:49,583 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 19:21:49,623 - INFO - logguer.py - 71 - show - Mi predecesor es 7 con ip 172.17.0.4 
+2024-07-17 19:21:49,625 - INFO - logguer.py - 71 - show - Yo soy id:8,con ip:172.17.0.3 
+2024-07-17 19:21:49,639 - INFO - logguer.py - 71 - show - Mi sucesor es 10 con ip 172.17.0.2
+2024-07-17 19:21:49,643 - INFO - logguer.py - 71 - show - ********************
