@@ -1,5 +1,7 @@
 # Operation codes 
 
+# Operation codes 
+
 EMPTYBIT=b''
 FIND_SUCCESSOR = 1
 FIND_PREDECESSOR = 2

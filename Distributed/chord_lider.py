@@ -2,14 +2,14 @@ from chord import *
 
 
 class Lider(ChordNode):
-
+    
     def make_election(self):
         """Convoco hacer elecciones
         """
         log_message(f'Mandando hacer eleccion',func=self.make_election)
         self.in_election_=True
         self._send_broadcast(ELECTION,self.ref) # Enviar a todos que yo Convoco Elecciones
-
+    
     def check_i_am_alone(self,time_=10):
         while True:
             time.sleep(time_)
@@ -21,9 +21,10 @@ class Lider(ChordNode):
                         self.in_election_=False
             except Exception as e:
                 log_message(f'Error chequeando que estoy solo',func=self.check_i_am_alone)
-
+    
     def _check_make_election(self,time_=4):
         """Chequea que el nodo tenga que estar en eleccion si es necesario
+
         Args:
             time_ (int, optional): _description_. Defaults to 4.
         """
@@ -32,7 +33,7 @@ class Lider(ChordNode):
             try:
                 log_message(f'Comprobando si debo hacer una Eleccion',func=self._check_make_election)
                 if  self.pred or self.i_am_alone: 
-
+                    
                     log_message(f'Tengo predecesor {self.pred} o estoy solo {self.i_am_alone} no debo hacer broadcast',func=self._check_make_election)
                     continue # Si Tengo buscando predecesor continuo
                 self.leader=self.ref # Mi lider ahora soy yo
@@ -40,11 +41,11 @@ class Lider(ChordNode):
                 #self.Is_Search_Succ=False # Se supone que entonces ahora debo hacer elecciones
                 log_message(f'No tengo sucessor debo hacer broadcast de Election',func=self._check_make_election)
                 self.make_election()# Mandar hacer eleccion
-
+                
             except Exception as e:
                 log_message(f'Error tratando de hacer Elecciones: {e} \n {traceback.format_exc()}',func=self._check_make_election)
-
-
+        
+   
     def broadcast_handle(self, op: int, message: tuple[int, ChordNodeReference], address: str):
         super().broadcast_handle(op, message, address)
         _,node=message
@@ -54,7 +55,7 @@ class Lider(ChordNode):
         elif op==ELECTION_WINNER:# Es que alguien gano las elecciones
             log_message(f'El ganador de las elecciones es {node.id} y el que yo creia como lider es {self.leader.id}',func=self.broadcast_handle)
             self.Election_handler(node)       
-
+                       
     def start_threads(self):
         super().start_threads()
         threading.Thread(target=self._check_make_election,daemon=True).start()# Comprobar si debo hacer eleccion o no
@@ -77,14 +78,14 @@ class Lider(ChordNode):
                 log_message(f'Todavia no tengo sucesor',level='INFO'),
             else:
                 log_message(f'Mi sucesor es {self.succ.id if self.succ else None} con ip {self.succ.ip  if self.succ else None}',level='INFO')
-
+            
             log_message(f'Estoy en eleccion {self.in_election_}',func=self.show)
-
+            
             log_message(f'El lider es {self.leader.id}',func=self.show)
-
+            
             log_message('*'*20,level='INFO')
-
-
+            
+            
             time.sleep(time_) # Se presenta cada 10 segundos
     def __init__(self, ip: str, port: int = 8001, m: int = 160):
         super().__init__(ip, port, m)
@@ -97,9 +98,9 @@ class Lider(ChordNode):
         self.i_am_alone_:bool=False # EMpiezo pensando que no para hacer descubrimiento
         self.i_am_alone_lock:threading.RLock=threading.RLock()
         #Threads
-
+    
         #self.start_threads()
-
+   
     @property 
     def i_am_alone(self):
         with self.i_am_alone_lock:
@@ -114,26 +115,26 @@ class Lider(ChordNode):
     def leader(self):
         with self.leader_lock:
             return self.leader_
-
+        
     @leader.setter
     def leader(self,value):
         if not isinstance(value,ChordNodeReference):
             raise Exception(f'value:{value} no es de tipo ChordNodeReference es de tipo:{type(value)}') 
         with self.leader_lock:
             self.leader_=value  
-
+    
     @property
     def i_am_leader(self):
         with self.i_am_leader_lock:
             return self.i_am_leader_
-
+    
     @i_am_leader.setter
     def i_am_leader(self,value):
         if not isinstance(value,bool):
             raise Exception(f'Value es de tipo {type(value)} no de tipo bool value:{value}')
         self.i_am_leader_=value
-
-
+        
+    
     def check_election_valid(self,time_=5,wait_election_time:int=10):
         while True: # Compruebo si estoy en eleccion
             time.sleep(time_)
@@ -152,16 +153,17 @@ class Lider(ChordNode):
                         log_message(f'Yo soy el lider por tanto mando a confirmar',func=self.check_election_valid)
                         self._send_broadcast(op=ELECTION_WINNER,data=self.leader) #Soy el ganador 
                         log_message(f'Enviado el mensaje de soy el lider',func=self.check_election_valid)
-
+                                      
             except Exception as e:
                 log_message(f'Error chequeando si hay eleccion {e} \n {traceback.format_exc()}',func=self.check_election_valid)
-
-
-
+                    
+        
+        
     def winner_handle(self,winner_node:ChordNodeReference):
         """Comprueba el ganador de lider 
             Si el lider ganador es menor que el que tenia propuesto lo acepto
             Si es mayor que el propuesto mando broadcast de proponerme de lider
+
         Args:
             winner_node (ChordNodeReference): _description_
         """
@@ -180,10 +182,11 @@ class Lider(ChordNode):
     def Election_handler(self,node_propose:ChordNodeReference):
         """
         Maneja las propuestas de ser el lider 
+
         Args:
             node_propose (ChordNodeReference): _description_
         """
-
+        
         with self.in_election_lock:
             if not self.in_election_:# Si no estaba en eleccion ahora estoy en eleccion
                 self.in_election_=True
@@ -191,7 +194,7 @@ class Lider(ChordNode):
                     self.leader=self.pred
                 else: # Si no tengo predecesor voy a proponerme de lider
                     self.leader=self.ref
-
+            
         if node_propose.id<self.leader.id:# Si el nodo que se propuso es menor que el nodo que tengo como lider
             self.leader=node_propose # Actualizo mi lider
             log_message(f'Mi nuevo lider es {self.leader.id}',func=self.Election_handler)
@@ -206,3 +209,11 @@ if __name__ == "__main__":
     node.start_threads()#Iniciar los nodos
     while True:
         pass
+
+
+        
+        
+    
+    
+    
+        
