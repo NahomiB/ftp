@@ -71,3 +71,12 @@ def log_message(message, level="INFO", extra_data={}, func=None):
     logger.log(logging.getLevelName(level), message, extra=extra_data)
 
 
+if __name__ == '__main__':
+    # Ejemplo de uso
+    log_message("Este es un mensaje de información desde el nivel principal.")
+    
+    # Serializa los logs en JSON cada cierto tiempo
+    while True:
+        serialize_logs(logs_json)
+        time.sleep(30)  # Serializa cada 30 segundos
+        
