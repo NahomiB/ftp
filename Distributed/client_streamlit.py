@@ -5,41 +5,14 @@ from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
 import os
 
-# Crear el motor de base de datos
-engine = create_engine('sqlite:///mi_base_de_datos.db')
-
-# Crear una sesión
-Session = sessionmaker(bind=engine)
-session = Session()
-
-# Crear la base declarativa
-Base = declarative_base()
-
-# Definir el modelo de la tabla
-class MiTabla(Base):
-    __tablename__ = 'mi_tabla'
-
-    id = Column(Integer, primary_key=True)
-    titulo = Column(Text)
-    documento = Column(LargeBinary)
-    nodo_id = Column(Integer)
-
-# Crear la tabla si no existe
-Base.metadata.create_all(engine)
-
-# Función para buscar documentos relevantes
 def buscar_documentos(query):
-    resultados = session.query(MiTabla).filter(MiTabla.titulo.contains(query)).all()
-    return resultados
+    pass
 
-# Función para mostrar el contenido del documento
-def mostrar_documento(documento):
-    st.write(documento.decode('utf-8'))
+def mostrar_documento(documentos):
+    pass
 
-# Función para listar los archivos del servidor
 def listar_archivos(directorio):
-    archivos = os.listdir(directorio)
-    return archivos
+    pass
 
 # Crear la interfaz de usuario
 st.title("Mi Cliente")
