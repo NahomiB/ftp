@@ -959,3 +959,1194 @@
 2024-07-17 20:11:15,540 - INFO - logguer.py - 71 - show - ********************
 2024-07-17 20:11:16,100 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
 2024-07-17 20:11:16,101 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:11:16,751 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:11:16,792 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:16,896 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:11:16,898 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:11:17,975 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 20:11:17,987 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 20:11:17,992 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 20:11:17,994 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.7', 39594): (14, ChordNodeReference:13,172.17.0.7,8001)
+2024-07-17 20:11:18,006 - INFO - logguer.py - 71 - _recive_broadcastt - Se recibio desde otro nodo
+2024-07-17 20:11:18,007 - INFO - logguer.py - 71 - _recive_broadcastt - Este ahora es el mensaje (14, ChordNodeReference:13,172.17.0.7,8001) que tiene un tipo <class 'tuple'>
+2024-07-17 20:11:18,014 - INFO - logguer.py - 71 - _recive_broadcastt - LLego la respuesta con opcion 14 de tipo <class 'int'>
+2024-07-17 20:11:18,023 - INFO - logguer.py - 71 - _recive_broadcastt - LLamando al handle para que tramite esto 14
+2024-07-17 20:11:18,030 - INFO - logguer.py - 71 - broadcast_handle - El nodo 13 está haciendo eleccion
+2024-07-17 20:11:18,297 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:11:18,410 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:18,417 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:18,428 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:18,441 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:18,447 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:18,454 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:18,485 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:18,546 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:18,552 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:18,559 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:18,566 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:18,568 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:18,579 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:18,589 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:20,115 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:11:20,166 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:11:20,440 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:11:20,462 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:20,476 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:21,527 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:21,545 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:21,545 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:21,561 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:21,583 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:21,600 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:21,600 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:21,610 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:21,632 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:21,654 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:21,660 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:21,677 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:21,680 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:21,682 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:21,944 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:11:22,014 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:22,085 - INFO - logguer.py - 71 - check_election_valid - Terminada la elección mi lider es ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:22,087 - INFO - logguer.py - 71 - check_election_valid - Yo soy el lider por tanto mando a confirmar
+2024-07-17 20:11:22,088 - INFO - logguer.py - 71 - _send_broadcast - Voy a enviar un broadcast con op 15 y data ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:22,097 - INFO - logguer.py - 71 - _search_successor - Enviado el broadcast
+2024-07-17 20:11:22,121 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:11:22,128 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:11:23,105 - INFO - logguer.py - 71 - _send_broadcast - Acabo de enviar un broadcast con op: 15 y data ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:23,115 - INFO - logguer.py - 71 - check_election_valid - Enviado el mensaje de soy el lider
+2024-07-17 20:11:23,315 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:11:24,193 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:11:24,215 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:11:24,669 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:24,701 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:24,802 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:24,865 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:24,899 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:24,932 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:24,962 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:24,993 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:25,027 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:25,059 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:25,090 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:25,106 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:25,128 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:25,141 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:25,531 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:11:25,582 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:25,679 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:26,157 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 20:11:26,238 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 20:11:26,291 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 20:11:26,349 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.7', 33071): (10, ChordNodeReference:13,172.17.0.7,8001)
+2024-07-17 20:11:26,382 - INFO - logguer.py - 71 - _recive_broadcastt - Se recibio desde otro nodo
+2024-07-17 20:11:26,430 - INFO - logguer.py - 71 - _recive_broadcastt - Este ahora es el mensaje (10, ChordNodeReference:13,172.17.0.7,8001) que tiene un tipo <class 'tuple'>
+2024-07-17 20:11:26,468 - INFO - logguer.py - 71 - _recive_broadcastt - LLego la respuesta con opcion 10 de tipo <class 'int'>
+2024-07-17 20:11:26,478 - INFO - logguer.py - 71 - _recive_broadcastt - LLamando al handle para que tramite esto 10
+2024-07-17 20:11:26,549 - INFO - logguer.py - 71 - broadcast_handle - El mensaje recibido al broadcast era para join desde el ip 172.17.0.7 de tipo <class 'str'>
+2024-07-17 20:11:26,622 - INFO - logguer.py - 71 - join - El nodo 13 mando solicitud de unirse como predecesor
+2024-07-17 20:11:26,685 - INFO - logguer.py - 71 - join - Entro aca la peticion del nodo 13
+2024-07-17 20:11:27,152 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:11:27,312 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:27,587 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:11:27,650 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:11:28,127 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:11:28,133 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion True
+2024-07-17 20:11:28,177 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:28,188 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:28,190 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:28,190 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:28,209 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:28,206 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:28,211 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:28,227 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:28,242 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:28,275 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:28,275 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:28,276 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:28,259 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:11:28,280 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:28,312 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:28,299 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:11:28,335 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:11:29,746 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 20:11:29,768 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 20:11:29,776 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 20:11:29,785 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.8', 45107): (10, ChordNodeReference:4,172.17.0.8,8001)
+2024-07-17 20:11:29,786 - INFO - logguer.py - 71 - _recive_broadcastt - Se recibio desde otro nodo
+2024-07-17 20:11:29,788 - INFO - logguer.py - 71 - _recive_broadcastt - Este ahora es el mensaje (10, ChordNodeReference:4,172.17.0.8,8001) que tiene un tipo <class 'tuple'>
+2024-07-17 20:11:29,802 - INFO - logguer.py - 71 - _recive_broadcastt - LLego la respuesta con opcion 10 de tipo <class 'int'>
+2024-07-17 20:11:29,811 - INFO - logguer.py - 71 - _recive_broadcastt - LLamando al handle para que tramite esto 10
+2024-07-17 20:11:29,825 - INFO - logguer.py - 71 - broadcast_handle - El mensaje recibido al broadcast era para join desde el ip 172.17.0.8 de tipo <class 'str'>
+2024-07-17 20:11:29,836 - INFO - logguer.py - 71 - join - El nodo 4 mando solicitud de unirse como predecesor
+2024-07-17 20:11:29,844 - INFO - logguer.py - 71 - join - Entro aca la peticion del nodo 4
+2024-07-17 20:11:29,857 - INFO - logguer.py - 71 - join - Acabo de actualizar mi sucesor al nodo 4
+2024-07-17 20:11:29,887 - INFO - logguer.py - 71 - join - Mande a notificar a mi nuevo sucesor :4 para que me haga su predecesor 
+2024-07-17 20:11:30,698 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:11:30,881 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:30,906 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:31,308 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:31,315 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:31,463 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:31,361 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:31,525 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:31,522 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:31,588 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:31,577 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:31,627 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:31,640 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:31,648 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:31,689 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:31,779 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:31,751 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:32,350 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:11:32,360 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:11:32,763 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:11:32,802 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:32,863 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:11:32,892 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:11:32,899 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 20:11:32,913 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 20:11:32,915 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 20:11:32,921 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.6', 34306): (15, ChordNodeReference:3,172.17.0.6,8001)
+2024-07-17 20:11:33,344 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:11:34,813 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:34,814 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:34,816 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:34,816 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:34,817 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:34,830 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:34,836 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:34,876 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:34,882 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:34,897 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:34,913 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:34,926 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:34,945 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:34,953 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:35,944 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 20:11:35,966 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:11:35,967 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 20:11:36,010 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 20:11:36,019 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.7', 40175): (15, ChordNodeReference:13,172.17.0.7,8001)
+2024-07-17 20:11:36,035 - INFO - logguer.py - 71 - _recive_broadcastt - Se recibio desde otro nodo
+2024-07-17 20:11:36,046 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:36,047 - INFO - logguer.py - 71 - _recive_broadcastt - Este ahora es el mensaje (15, ChordNodeReference:13,172.17.0.7,8001) que tiene un tipo <class 'tuple'>
+2024-07-17 20:11:36,051 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:36,059 - INFO - logguer.py - 71 - _recive_broadcastt - LLego la respuesta con opcion 15 de tipo <class 'int'>
+2024-07-17 20:11:36,063 - INFO - logguer.py - 71 - _recive_broadcastt - LLamando al handle para que tramite esto 15
+2024-07-17 20:11:36,069 - INFO - logguer.py - 71 - broadcast_handle - El ganador de las elecciones es 13 y el que yo creia como lider es 3
+2024-07-17 20:11:36,371 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:11:36,391 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:11:37,900 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:11:37,942 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:37,955 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:37,958 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:37,969 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:37,971 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:37,980 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:38,002 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:38,012 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:38,023 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:38,042 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:38,057 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:38,076 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:38,157 - INFO - logguer.py - 71 - check_election_valid - Terminada la elección mi lider es ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:38,177 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:11:38,215 - INFO - logguer.py - 71 - check_election_valid - Yo soy el lider por tanto mando a confirmar
+2024-07-17 20:11:38,232 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:11:38,262 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:11:38,240 - INFO - logguer.py - 71 - _send_broadcast - Voy a enviar un broadcast con op 15 y data ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:38,316 - INFO - logguer.py - 71 - _search_successor - Enviado el broadcast
+2024-07-17 20:11:38,233 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:38,368 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:38,382 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:11:39,345 - INFO - logguer.py - 71 - _send_broadcast - Acabo de enviar un broadcast con op: 15 y data ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:39,356 - INFO - logguer.py - 71 - check_election_valid - Enviado el mensaje de soy el lider
+2024-07-17 20:11:40,491 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:11:40,534 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:11:41,084 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:11:41,126 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:41,126 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:41,169 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:41,178 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:41,180 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:41,193 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:41,195 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:41,208 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:41,225 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:41,388 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:41,406 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:41,408 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:41,420 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:41,432 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:41,440 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:41,448 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:42,400 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 20:11:42,402 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 20:11:42,411 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 20:11:42,429 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.6', 42582): (15, ChordNodeReference:3,172.17.0.6,8001)
+2024-07-17 20:11:43,302 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:11:43,382 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:43,423 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:11:43,600 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:11:43,648 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:11:44,242 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:44,250 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:44,251 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:44,253 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:44,260 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:44,267 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:44,274 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:44,398 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:11:44,411 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion True
+2024-07-17 20:11:44,467 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:44,487 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:44,488 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:44,511 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:44,534 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:44,550 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:44,565 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:44,621 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:11:44,622 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:11:45,451 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 20:11:46,150 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:11:46,209 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:46,242 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:47,321 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:47,328 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:47,349 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:47,360 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:47,371 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:47,375 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:47,393 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:47,594 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:47,600 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:47,614 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:47,628 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:47,645 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:47,674 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:47,722 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:48,555 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:11:48,632 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:11:48,644 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:11:48,740 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:11:48,776 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:48,916 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:11:48,940 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:11:50,425 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:50,439 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:50,449 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:50,483 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:50,516 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:50,531 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:50,561 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:50,752 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:50,765 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:50,785 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:50,793 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:50,798 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:50,807 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:50,853 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:51,264 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:11:51,302 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:51,316 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:52,676 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:11:52,685 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:11:53,591 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:53,619 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:11:53,621 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:53,686 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:53,695 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:53,703 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:53,749 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:53,766 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:53,882 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:53,890 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:53,892 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:53,899 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:53,906 - INFO - logguer.py - 71 - show - Estoy en eleccion True
+2024-07-17 20:11:53,908 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:53,916 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:53,966 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:11:54,064 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:54,231 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:11:54,233 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:11:54,448 - INFO - logguer.py - 71 - check_election_valid - Terminada la elección mi lider es ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:54,454 - INFO - logguer.py - 71 - check_election_valid - Yo soy el lider por tanto mando a confirmar
+2024-07-17 20:11:54,456 - INFO - logguer.py - 71 - _send_broadcast - Voy a enviar un broadcast con op 15 y data ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:54,458 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido en broadcast es <class 'bytes'> ,  <class 'tuple'>
+2024-07-17 20:11:54,471 - INFO - logguer.py - 71 - _recive_broadcastt - El tipo de lo recibido deserializado en broadcast es <class 'tuple'> ,  <class 'tuple'>
+2024-07-17 20:11:54,459 - INFO - logguer.py - 71 - _search_successor - Enviado el broadcast
+2024-07-17 20:11:54,495 - INFO - logguer.py - 71 - _recive_broadcastt - Mensaje recibido desde ('172.17.0.6', 37264): (15, ChordNodeReference:3,172.17.0.6,8001)
+2024-07-17 20:11:55,541 - INFO - logguer.py - 71 - _send_broadcast - Acabo de enviar un broadcast con op: 15 y data ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:55,552 - INFO - logguer.py - 71 - check_election_valid - Enviado el mensaje de soy el lider
+2024-07-17 20:11:56,346 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:11:56,373 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:11:56,381 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:56,696 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:11:56,708 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:11:56,794 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:56,806 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:56,819 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:56,878 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:56,897 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:11:56,909 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:56,921 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:56,930 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:56,970 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:56,977 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:56,988 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:11:57,002 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:11:57,033 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:11:57,034 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:11:57,550 - INFO - logguer.py - 71 - _recive_broadcastt - Esperando Broadcast
+2024-07-17 20:11:58,670 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:11:59,252 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:11:59,302 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:11:59,500 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:11:59,566 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:11:59,938 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:11:59,950 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:11:59,958 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:11:59,976 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:00,000 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:00,021 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:00,037 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:00,046 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:00,061 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:00,062 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:00,088 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:00,104 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:00,118 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:00,132 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:00,559 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:12:00,559 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:12:00,565 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:12:00,741 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:00,748 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:01,403 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:12:01,467 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:12:01,468 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:03,043 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:03,056 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:03,057 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:03,070 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:03,070 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:03,092 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:03,103 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:03,146 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:03,149 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:03,156 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:03,169 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:03,178 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:03,183 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:03,190 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:03,696 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:12:04,661 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:12:04,730 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:04,758 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:04,758 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:04,829 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:12:04,835 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:12:05,613 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:12:05,633 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:12:05,645 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:12:06,126 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:06,138 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:06,145 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:06,153 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:06,165 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:06,168 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:06,171 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:06,200 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:06,218 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:06,233 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:06,242 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:06,245 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:06,251 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:06,253 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:06,492 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:12:06,572 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:12:06,580 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:08,720 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:12:08,767 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:08,783 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:09,185 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:09,198 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:09,207 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:09,224 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:09,239 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:09,256 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:09,265 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:09,272 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:09,279 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:09,296 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:09,309 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:09,317 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:09,342 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:09,348 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:09,846 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:12:09,902 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:09,998 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:12:10,010 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:12:10,667 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:12:10,683 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:12:10,697 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:12:11,596 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:12:11,659 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:12:11,665 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:12,279 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:12,285 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:12,299 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:12,305 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:12,307 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:12,314 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:12,329 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:12,354 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:12,363 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:12,375 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:12,377 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:12,379 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:12,385 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:12,395 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:12,816 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:12,830 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:13,748 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:12:15,033 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:12:15,077 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:15,320 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:12:15,353 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:15,353 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:12:15,392 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:15,423 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:15,442 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:15,461 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:15,476 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:15,483 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:15,500 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:15,443 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:15,530 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:15,577 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:15,579 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:15,614 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:15,637 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:15,708 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:12:15,710 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:12:15,716 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:12:16,678 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:12:16,722 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:12:16,738 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:16,860 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:16,868 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:18,621 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:18,632 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:18,633 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:18,639 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:18,647 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:18,648 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:18,655 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:18,669 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:18,683 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:18,711 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:18,713 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:18,723 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:18,739 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:18,762 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:12:18,763 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:20,433 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:12:20,472 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:20,588 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:12:20,600 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:12:20,730 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:12:20,745 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:12:20,757 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:12:20,889 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:20,897 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:21,702 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:21,713 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:21,737 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:21,751 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:12:21,772 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:21,803 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:21,810 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:12:21,823 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:21,816 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:21,816 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:21,837 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:21,844 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:21,858 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:21,858 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:21,872 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:21,880 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:21,904 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:23,795 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:12:24,873 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:24,920 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:24,921 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:24,968 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:24,949 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:24,979 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:24,981 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:24,926 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:24,996 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:25,056 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:25,072 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:25,114 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:25,140 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:25,158 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:25,171 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:25,172 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:25,609 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:12:25,685 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:25,792 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:12:25,807 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:12:25,811 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:12:25,833 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:12:25,842 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:12:26,836 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:12:26,881 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:12:26,888 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:28,125 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:28,127 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:28,135 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:28,147 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:28,149 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:28,164 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:28,172 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:28,188 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:28,196 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:28,204 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:28,205 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:28,218 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:28,242 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:28,257 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:28,807 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:12:28,985 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:28,993 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:30,828 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:12:30,846 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:12:30,855 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:12:30,856 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:12:30,953 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:31,054 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:12:31,075 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:12:31,196 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:31,203 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:31,213 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:31,222 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:31,229 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:31,237 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:31,239 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:31,273 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:31,274 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:31,281 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:31,282 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:31,294 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:31,306 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:31,314 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:31,898 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:12:31,947 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:12:31,956 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:33,009 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:33,017 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:33,823 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:12:34,246 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:34,272 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:34,294 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:34,310 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:34,325 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:34,327 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:34,329 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:34,326 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:34,354 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:34,362 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:34,381 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:34,381 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:34,382 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:34,398 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:35,891 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:12:35,924 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:12:35,931 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:12:36,103 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:12:36,167 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:36,283 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:12:36,285 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:12:36,979 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:12:37,008 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:12:37,041 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:37,041 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:37,059 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:37,387 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:37,405 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:37,409 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:37,436 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:37,438 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:37,440 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:37,447 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:37,448 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:37,464 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:37,471 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:37,475 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:37,490 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:37,503 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:37,503 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:38,833 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:12:40,507 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:40,507 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:40,519 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:40,533 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:40,536 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:40,544 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:40,554 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:40,560 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:40,566 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:40,580 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:40,581 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:40,608 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:40,602 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:40,634 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:40,957 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:12:40,959 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:12:40,998 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:12:41,068 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:41,079 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:41,323 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:12:41,373 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:41,430 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:12:41,442 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:12:42,061 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:12:42,120 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:12:42,136 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:43,623 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:43,642 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:43,642 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:43,645 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:43,651 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:43,668 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:43,675 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:43,677 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:43,684 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:43,674 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:43,703 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:43,723 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:43,741 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:43,743 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:43,852 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:12:45,107 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:45,145 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:46,018 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:12:46,036 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:12:46,038 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:12:46,463 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:12:46,524 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:46,718 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:46,751 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:46,768 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:46,797 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:46,787 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:46,768 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:12:46,807 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:46,810 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:46,811 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:12:46,820 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:46,871 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:46,878 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:46,887 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:46,827 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:46,924 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:46,925 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:47,168 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:12:47,211 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:12:47,268 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:48,894 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:12:49,166 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:49,182 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:49,903 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:49,906 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:49,909 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:49,911 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:49,943 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:49,953 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:49,912 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:49,963 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:49,971 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:49,986 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:49,996 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:50,015 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:50,029 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:50,045 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:51,060 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:12:51,061 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:12:51,062 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:12:51,878 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:12:51,970 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:52,012 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:12:52,024 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:12:52,400 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:12:52,436 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:12:52,437 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:53,037 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:53,043 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:53,051 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:53,059 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:53,085 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:53,083 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:53,093 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:53,100 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:53,107 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:53,123 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:53,142 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:53,140 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:53,151 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:53,159 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:53,221 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:53,227 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:53,906 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:12:56,068 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:12:56,115 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:12:56,138 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:12:56,158 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:56,239 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:56,173 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:56,284 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:56,340 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:56,374 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:56,357 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:56,389 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:56,412 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:56,413 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:56,453 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:56,439 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:56,474 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:56,483 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:57,032 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:12:57,110 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:57,204 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:12:57,223 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:12:57,241 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:12:57,248 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:12:57,450 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:12:57,467 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:12:57,486 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:12:58,943 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:12:59,492 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:59,499 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:59,500 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:59,498 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:12:59,514 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:12:59,501 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:59,516 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:59,516 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:12:59,524 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:59,533 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:12:59,549 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:12:59,558 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:12:59,585 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:12:59,603 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:01,240 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:13:01,253 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:13:01,261 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:13:01,261 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:01,273 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:02,230 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:13:02,296 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:02,428 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:13:02,435 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:13:02,500 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:13:02,569 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:13:02,570 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:02,572 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:02,606 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:02,614 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:02,633 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:02,632 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:02,641 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:02,679 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:02,666 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:02,780 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:02,705 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:02,831 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:02,817 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:02,842 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:02,904 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:03,972 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:13:05,290 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:05,301 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:06,008 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:06,022 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:06,023 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:06,077 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:06,086 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:06,107 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:06,117 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:06,117 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:06,170 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:06,131 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:06,177 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:06,199 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:06,198 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:06,241 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:06,271 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:13:06,282 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:13:06,306 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:13:07,455 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:13:07,531 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:07,626 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:13:07,632 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:13:07,637 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:13:07,671 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:13:07,672 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:09,001 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:13:09,226 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:09,227 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:09,236 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:09,248 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:09,254 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:09,260 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:09,274 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:09,267 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:09,285 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:09,299 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:09,311 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:09,339 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:09,311 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:09,343 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:09,342 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:09,361 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:11,335 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:13:11,380 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:13:11,403 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:13:12,342 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:12,353 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:12,361 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:12,363 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:12,372 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:12,372 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:12,379 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:12,378 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:12,387 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:12,387 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:12,396 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:12,404 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:12,406 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:12,413 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:12,656 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:13:12,675 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:13:12,692 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:12,838 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:13:12,853 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:12,867 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:13:12,886 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:13:13,359 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:13,365 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:14,016 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:13:15,405 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:15,422 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:15,428 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:15,429 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:15,430 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:15,432 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:15,435 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:15,422 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:15,510 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:15,543 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:15,585 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:15,596 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:15,603 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:15,610 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:16,415 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:13:16,419 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:13:16,454 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:13:17,372 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:17,380 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:17,916 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:13:17,926 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:13:17,981 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:13:17,998 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:18,022 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:18,105 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:13:18,123 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:13:18,456 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:18,473 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:18,482 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:18,484 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:18,500 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:18,503 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:18,510 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:18,627 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:18,648 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:18,681 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:18,682 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:18,695 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:18,696 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:18,697 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:19,025 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:13:21,404 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:21,450 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:21,493 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:13:21,533 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:13:21,532 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:21,580 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:13:21,628 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:21,710 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:21,711 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:21,742 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:21,774 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:21,822 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:21,840 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:21,941 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:21,872 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:21,987 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:22,016 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:22,086 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:22,096 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:23,052 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:13:23,100 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:13:23,109 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:23,142 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:13:23,190 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:23,295 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:13:23,296 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:13:24,046 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:13:25,073 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:25,090 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:25,102 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:25,122 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:25,134 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:25,144 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:25,142 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:25,146 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:25,148 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:25,157 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:25,154 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:25,164 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:25,202 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:25,211 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:25,470 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:25,487 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:26,657 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:13:26,670 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:13:26,673 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:13:28,144 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:13:28,208 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:28,230 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:13:28,253 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:28,316 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:28,265 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:28,263 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:28,323 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:28,324 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:13:28,373 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:28,385 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:28,406 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:28,407 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:28,414 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:28,435 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:28,427 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:28,475 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:28,449 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:28,483 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:28,615 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:13:28,616 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:13:29,079 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:13:29,505 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:29,507 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:31,508 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:31,516 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:31,519 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:31,528 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:31,538 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:31,526 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:31,546 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:31,548 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:31,549 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:31,545 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:31,558 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:31,585 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:31,624 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:31,654 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:31,719 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:13:31,740 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:13:31,747 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:13:33,359 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:13:33,391 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:13:33,400 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:33,520 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:33,528 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:33,643 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:13:33,686 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:33,773 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:13:33,775 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:13:34,101 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:13:34,708 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:34,725 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:34,726 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:34,729 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:34,729 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:34,737 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:34,744 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:34,766 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:34,792 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:34,813 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:34,821 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:34,827 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:34,854 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:34,859 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:36,774 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:13:36,827 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:13:36,874 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:13:37,551 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:37,604 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:37,889 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:37,931 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:37,951 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:37,987 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:38,018 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:38,164 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:38,048 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:38,203 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:38,279 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:38,375 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:38,397 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:38,412 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:38,445 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:13:38,445 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:38,553 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:38,570 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:13:38,586 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:38,798 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:13:39,029 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:39,132 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:13:39,246 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:13:39,287 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:13:41,509 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:41,521 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:41,536 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:41,554 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:41,571 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:41,595 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:41,580 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:41,643 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:41,624 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:41,670 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:41,697 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:41,745 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:41,769 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:41,789 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:41,825 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:41,867 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:41,992 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:13:41,998 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:13:42,001 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:13:43,604 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:13:43,645 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:13:43,657 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:44,181 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:13:44,305 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:13:44,366 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:44,450 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:13:44,456 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:13:44,749 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:44,758 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:44,759 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:44,768 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:44,774 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:44,791 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:44,799 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:44,878 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:44,881 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:44,896 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:44,907 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:44,918 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:44,937 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:44,967 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:45,840 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:45,846 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:47,011 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:13:47,026 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:13:47,039 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:13:47,839 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:47,857 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:47,868 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:47,880 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:47,883 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:47,891 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:47,895 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:47,977 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:47,995 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:48,013 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:48,025 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:48,044 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:48,055 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:48,061 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:48,671 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:13:48,704 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:13:48,727 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:49,193 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:13:49,470 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:13:49,573 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:49,679 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:13:49,703 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:13:49,872 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:49,884 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:50,955 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:50,977 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:50,988 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:51,010 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:51,017 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:51,050 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:51,058 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:51,096 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:51,104 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:51,123 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:51,131 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:51,160 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:51,182 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:51,215 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:52,071 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:13:52,085 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:13:52,091 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:13:53,780 - INFO - logguer.py - 71 - stabilize - stabilize
+2024-07-17 20:13:53,788 - INFO - logguer.py - 71 - stabilize -  Este es X ChordNodeReference:3,172.17.0.6,8001
+2024-07-17 20:13:53,790 - INFO - logguer.py - 71 - stabilize - successor : ChordNodeReference:4,172.17.0.8,8001 predecessor ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:53,898 - INFO - logguer.py - 71 - _check_make_election - Comprobando si debo hacer una Eleccion
+2024-07-17 20:13:53,899 - INFO - logguer.py - 71 - _check_make_election - Tengo predecesor ChordNodeReference:13,172.17.0.7,8001 o estoy solo False no debo hacer broadcast
+2024-07-17 20:13:54,065 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:54,074 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:54,083 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:54,084 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:54,086 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:54,088 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:54,096 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:54,230 - INFO - logguer.py - 71 - _search_successor - Tratando de hacer broadcast
+2024-07-17 20:13:54,231 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:54,254 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:54,279 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:54,285 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:54,291 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:54,308 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:54,314 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:54,715 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor
+2024-07-17 20:13:54,797 - INFO - logguer.py - 71 - check_predecessor - La respuesta de si esta vivo el nodo vivo o no es ChordNodeReference:13,172.17.0.7,8001
+2024-07-17 20:13:54,979 - INFO - logguer.py - 71 - check_predecessor - El predecesor de mi sucesor es 3
+2024-07-17 20:13:54,996 - INFO - logguer.py - 71 - check_predecessor - Chequeando predecesor ...
+2024-07-17 20:13:55,473 - INFO - logguer.py - 71 - stabilize_finger - Error chequeando que los finguers estan bien local variable 'new_data' referenced before assignment
+2024-07-17 20:13:57,099 - INFO - logguer.py - 71 - check_election_valid - Chequeando si estoy en eleccion
+2024-07-17 20:13:57,115 - INFO - logguer.py - 71 - check_election_valid - Comprobando si estoy en eleccion False
+2024-07-17 20:13:57,116 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:57,116 - INFO - logguer.py - 71 - check_election_valid - No estoy en eleccion
+2024-07-17 20:13:57,128 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:57,168 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:57,180 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:57,186 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:57,188 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:57,189 - INFO - logguer.py - 71 - show - ********************
+2024-07-17 20:13:57,331 - INFO - logguer.py - 71 - show - --------------------
+2024-07-17 20:13:57,359 - INFO - logguer.py - 71 - show - Mi predecesor es 13 con ip 172.17.0.7 
+2024-07-17 20:13:57,381 - INFO - logguer.py - 71 - show - Yo soy id:3,con ip:172.17.0.6 
+2024-07-17 20:13:57,387 - INFO - logguer.py - 71 - show - Mi sucesor es 4 con ip 172.17.0.8
+2024-07-17 20:13:57,388 - INFO - logguer.py - 71 - show - Estoy en eleccion False
+2024-07-17 20:13:57,405 - INFO - logguer.py - 71 - show - El lider es 3
+2024-07-17 20:13:57,417 - INFO - logguer.py - 71 - show - ********************
