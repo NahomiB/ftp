@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine, Column, Integer, Text, LargeBinary
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
+from doc import  Documento
 
 # Crear el motor de base de datos
 engine = create_engine('sqlite:///mi_base_de_datos.db')
@@ -24,13 +25,6 @@ class MiTabla(Base):
 # Crear la tabla si no existe
 Base.metadata.create_all(engine)
 
-# Definir un objeto de Python
-class Documento:
-    def __init__(self, id, titule, document, nodo_id):
-        self.id = id
-        self.titule = titule
-        self.document = document
-        self.nodo_id = nodo_id
 
 # Crear un objeto Documento
 mi_documento = Documento(1, "Mi título", b'\x01\x23\x45\x67\x89\xAB\xCD\xEF', 456)
