@@ -6,6 +6,24 @@ import random
 import time
 import platform
 
+import os
+
+
+
+
+
+
+
+
+
+
+
+
+def obtener_directorio_actual():
+    # Obtener el directorio de trabajo actual
+    directorio_actual = os.getcwd()
+    print("El directorio actual es:", directorio_actual)
+
 class FTP_Handler():
     def __init__(self,root) -> None:
         self.root = root
@@ -14,7 +32,8 @@ class FTP_Handler():
         self.data_connection = None
 
     def handle_list(self, client_socket):
-        file_list=os.listdir(self.current_dir)
+
+        file_list=os.listdir(r'C:\blabla\ftp\ftp_server\ftp_folder')
         response=''
         for item in file_list:
             item_path = os.path.join(self.current_dir, item)
@@ -125,6 +144,7 @@ class FTP_Handler():
         
 
         self.data_connection, _ = self.data_socket.accept()
+
 
 
 class FTP_Server():
@@ -244,6 +264,11 @@ class FTP_Server():
             else:
                 client_socket.sendall(b'500 Command not supported\r\n')
 
+
+
+
+
+
 ROOT='ftp_folder'
 DIR= os.path.join(os.getcwd(),ROOT)
 COMMANDS = ['USER', 'PASS', 'QUIT', 'LIST', 'RETR','STOR', 'DELE', 'CWD', 'PWD', 'MKD', 'PORT', 'PASV'] 
@@ -253,7 +278,7 @@ VALID_USERS = {'Carla':'Carla'}
 server_socket=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 server=FTP_Server(DIR,COMMANDS,VALID_USERS)
 
-server_address=('0.0.0.0',21)
+server_address=('192.168.147.187',21)
 server.ftp_socket.bind(server_address)
 server.ftp_socket.listen(5)
 print('El servidor FTP está escuchando en el puerto 21')
@@ -267,3 +292,20 @@ while True:
 
     client_handler = threading.Thread(target=server.handle_client, args=(client_socket,))
     client_handler.start()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
