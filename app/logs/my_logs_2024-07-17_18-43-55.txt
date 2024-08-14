@@ -1,0 +1,3 @@
+2024-07-17 18:43:56,048 - INFO - logguer.py - 71 - join - El nodo 15 mando solicitud de unirse como predecesor
+2024-07-17 18:43:56,050 - INFO - logguer.py - 71 - join - Acabo de actualizar mi sucesor al nodo 15
+2024-07-17 18:43:56,050 - INFO - logguer.py - 71 - join - Mande a notificar a mi nuevo sucesor :15 para que me haga su predecesor 
