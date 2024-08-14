@@ -244,7 +244,7 @@ class FTP_Server():
             else:
                 client_socket.sendall(b'500 Command not supported\r\n')
 
-ROOT='ftp_folder'
+ROOT='ftp_server\\ftp_folder'
 DIR= os.path.join(os.getcwd(),ROOT)
 COMMANDS = ['USER', 'PASS', 'QUIT', 'LIST', 'RETR','STOR', 'DELE', 'CWD', 'PWD', 'MKD', 'PORT', 'PASV'] 
 VALID_USERS = {'Carla':'Carla'}
