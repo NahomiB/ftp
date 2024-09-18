@@ -10,7 +10,7 @@ from helper.logguer import log_message
 from helper.utils import getShaRepr
 from helper.chord_node_reference import ChordNodeReference
 from concurrent.futures import ThreadPoolExecutor, TimeoutError
-import zmq
+#import zmq
 import pickle
 
 

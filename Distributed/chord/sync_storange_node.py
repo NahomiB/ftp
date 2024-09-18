@@ -1,4 +1,4 @@
-from chord.storange_node import *
+from .storange_node import *
 
 
 #app = Flask(__name__)
