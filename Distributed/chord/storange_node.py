@@ -44,7 +44,7 @@ class StoreNode(Leader):
         self.setup_routes()
         log_message(f'Inicializar el hilo de del servidor de flask',func=self.start_flask_storange_server)
         threading.Thread(
-            target=lambda: app.run(host=self.ip, port=self.flask_port,threaded=False), daemon=True 
+            target=lambda: app.run(host=self.ip, port=self.flask_port,threaded=True), daemon=True 
         ).start()  # Iniciar servidor por el puerto 8000  # Si da problemas poner los hilos en False
         
     
@@ -440,11 +440,15 @@ class StoreNode(Leader):
             bytes: _description_
         """
         # El cliente manda (Nombre archivo, archivo)
-        file = request.files["file"]
+        try:
+            file = request.files["file"]
 
-        data = file.stream.read()
+            data = file.stream.read()
 
-        return data
+            return data
+        except Exception as e:
+            log_message(f"Hubo un error tratando de sacar la data del request Error:{e} \n {traceback.format_exc()}",func=self.get_data_from_request)
+            raise Exception(e)
 
     def send_file_to_node(
         self, node: ChordNodeReference, sub_url: str, data: bytes,timeout:float=10
@@ -688,13 +692,57 @@ class StoreNode(Leader):
                 f"Ocurrio un Error en Crud Action con codigo {crud_code} el documento {document.id} {document.title} a la sub_url {sub_url} Error:{e} \n {traceback.format_exc()}"
             )
             return (False, to_return)
+    def create_document(self,title:str,text:str,max_value:int=16)->Document:
+        """
+        Funcion que crea un documento
 
-    # Endpoint upload_file
-    def upload_file(self):
+        Args:
+            title (str): _description_
+            text (str): _description_
+            max_value (int, optional): _description_. Defaults to 16.
+
+        Returns:
+            Document: _description_
+        """
+        return Document(title=title,text=text,max_value=max_value)
+    def redirect_request(self,name:str,hash_name:int):
+        """
+        Este metodo se encarga de saber si hay que redireccionar a otro nodo el request
+        Si devuelve algo diferente de None devolver, None es que soy yo el dueño
+        Args:
+            name (str): nombre del archivo
+            hash_name (int): id_ del archivo
+
+        Returns:
+            tuple[Any, Literal[HTTPStatus.MOVED_PERMANENTLY]] | None: _description_
+        """
+        node_owner=self.find_key_owner(hash_name)
+        log_message(
+                f"El nodo que debe tener el documento con nombre {name} y llave {hash_name} es el nodo {node_owner.id}",
+                func=self.redirect_request
+            )
+        if node_owner.id!=self.id:# Es que no soy el duenno y tengo que redirigir
+            log_message(f"Yo no soy el dueño del archivo {name} con id {hash_name} el dueño es {node_owner.id}",func=self.redirect_request)
+            return (
+                jsonify({"message": f'Se va a redirigir al nodo {node_owner.id} ip:{node_owner.ip}','ip':node_owner.ip}),
+                HTTPStatus.MOVED_PERMANENTLY,
+            )
+        return None
+    
+    def get_request(self,func_to_do_if_i_owner):
+        """
+        Se encarga de ls peticiones de upload y delete
+
+        Args:
+            func_to_do_if_i_owner (_type_): funcion que se hace si soy el dueño
+
+        Returns:
+            _type_: _description_
+        """
         addr_from = request.remote_addr
         log_message(
-            f"Se a mandado a guardar un archivo que envio el addr: {addr_from} ",
-            func=self.upload_file,
+            f"Se a mandado a tratar un archivo que envio el addr: {addr_from} ",
+            func=self.get_request,
         )
         # Nombre del archivo , str con el archivo
         doc_to_save = self.get_data_from_request()  # Tomar los bytes de la data
@@ -707,11 +755,29 @@ class StoreNode(Leader):
             )
 
         name, doc_to_save = pickle.loads(doc_to_save)
-        log_message(f"La data es {name}{doc_to_save}", func=self.upload_file)
+        log_message(f"La data es {name}{doc_to_save}", func=self.get_request)
 
-        log_message(f"El archivo tiene nombre {name}", func=self.upload_file)
+        log_message(f"El archivo tiene nombre {name}", func=self.get_request)
         hash_name = getShaRepr(name)  # Hashear el nombre dado que esta sera la llave
+        # Saber si hay que mandar a redireccionar
+        redirection=self.redirect_request(name,hash_name)
+        if redirection is not None:
+            log_message(f"Se va a redirigir la peticion del archivo {name} del add: {addr_from}",func=self.get_request)
+            return redirection
+        return func_to_do_if_i_owner(hash_name=hash_name,name=name,doc_to_save=doc_to_save)
+        
+    def _upload_file(self,hash_name:str,name:str,doc_to_save:Document):
+        """
+        Logica interna para guardar un documento en este nodo
 
+        Args:
+            hash_name (str): id del documento
+            name (str): nombre del documento
+            doc_to_save (Document): documento
+
+        Returns: Response
+            
+        """
         # Mandar a guardar en la base de datos
 
         # Comprobar que no esta en la base de datos
@@ -732,8 +798,10 @@ class StoreNode(Leader):
 
         # Guardar en la base de datos
         try:
+            
             ok_crud, nodes_save = self.Crud_action(
-                Document(name, doc_to_save),
+                #Document(name, doc_to_save),
+                self.create_document(name, doc_to_save),
                 "save_document_like_replica",
                 CrudCode.Insert,
             )
@@ -751,6 +819,7 @@ class StoreNode(Leader):
                     f"Ocurrio un error tratando de insertar el documento con {name} y data {doc_to_save} e id{getShaRepr(name)} se guardo correctamente en los nodos {nodes_save}",
                     func=self.upload_file,
                 )
+                return (jsonify({"message":f"No se pudo guardar el archivo {name}"}),HTTPStatus.INTERNAL_SERVER_ERROR)
 
         except Exception as e:
             log_message(
@@ -764,7 +833,20 @@ class StoreNode(Leader):
                 ),
                 HTTPStatus.INTERNAL_SERVER_ERROR,
             )
+            
+    
+        
+    # Endpoint upload_file
+    def upload_file(self):
+        """
+         Endpoint upload_file
 
+        Returns:
+            _type_: _description_
+        """
+        return self.get_request(self._upload_file)
+        
+    
     # EndPoint get_file_by_name
     def get_file_by_name(self):
         """
@@ -795,7 +877,8 @@ class StoreNode(Leader):
             key = getShaRepr(name)
             node = self.find_key_owner(key)
             log_message(
-                f"El nodo que debe tener el documento con nombre {name} y llave {key} es el nodo {node.id}"
+                f"El nodo que debe tener el documento con nombre {name} y llave {key} es el nodo {node.id}",
+                func=self.get_file_by_name
             )
             if node.id != self.id:  # Redirecciono al nodo que es dueño de la llave
                 red_ip = self.url_from_ip(node.ip)
@@ -823,8 +906,8 @@ class StoreNode(Leader):
                     {
                         "message": f"El documento con nombre {name} no se encuentra en la base de datos"
                     },
-                    409,
-                )
+                    
+                ),409
 
             log_message(
                 f"Se a recuperado exitosamente el documento {doc.title} dado que se habia pedido el {name} desde el paquete {start}",
@@ -850,8 +933,10 @@ class StoreNode(Leader):
                 for i in range(0, total_length, chunk_size):
                     chunk = data_bytes[i : i + chunk_size]
                     if part_number >= start:
-                        paquete = Paquete(part_number, chunk, False)
-                        yield paquete.serialize()
+                        #paquete = Paquete(part_number, chunk, False)
+                        #yield paquete.serialize()
+                        paquete=(part_number,chunk,False)
+                        yield obj_to_bytes(paquete)
                     part_number += 1
 
             log_message(
@@ -864,32 +949,8 @@ class StoreNode(Leader):
                 f" A ocurrido un error {e} tratando de dar en el endpoint de devulver un archivo por nombre {traceback.format_exc()}",
                 func=self.get_file_by_name,
             )
-
-    def update_file(self):
-        addr_from = request.remote_addr
-        log_message(
-            f"Se a mandado a actualizar un archivo que envio el addr: {addr_from} ",
-            func=self.upload_file,
-        )
-        # Nombre del archivo , str con el archivo
-        doc_to_save = self.get_data_from_request()  # Tomar los bytes de la data
-
-        if doc_to_save is None:  # Es que no se envió nada
-            # Retornar error de no file
-            return (
-                jsonify({"message": 'Bad Request: Parámetro "param" requerido'}),
-                HTTPStatus.BAD_REQUEST,
-            )
-
-        name, doc_to_save = pickle.loads(doc_to_save)
-        log_message(f"La data es {name} data:{doc_to_save}", func=self.upload_file)
-
-        log_message(f"El archivo tiene nombre {name}", func=self.upload_file)
-        hash_name: int = getShaRepr(
-            name
-        )  # Hashear el nombre dado que esta sera la llave
-
-        # Comprobar que está en la base de datos
+    def _update_file(self,hash_name:str,name:str,doc_to_save:Document):
+               # Comprobar que está en la base de datos
         if not db.has_document(hash_name):  # Mandar error de que no se envió nada
             return (
                 jsonify(
@@ -905,7 +966,7 @@ class StoreNode(Leader):
             f"Se va a tratar de actualizar el documento {name}", func=self.update_file
         )
         try:
-            document = Document(name, doc_to_save)
+            document = self.create_document(name,doc_to_save)#Document(name, doc_to_save)
             ok_crud, nodes_save = self.Crud_action(
                 document=document,
                 sub_url="update_document_like_replica",
@@ -918,7 +979,7 @@ class StoreNode(Leader):
                     f"No se pudo actualizar el documento {document.id} se guardo la actualización en los nodos {nodes_save} ",
                     func=self.update_file,
                 )
-
+                return (jsonify({"message":f"No se pudo actualizar el archivo {name}"}),HTTPStatus.INTERNAL_SERVER_ERROR)
             else:
                 log_message(f"Se actualizó el documento {name}", func=self.update_file)
                 return (
@@ -941,27 +1002,28 @@ class StoreNode(Leader):
                 HTTPStatus.INTERNAL_SERVER_ERROR,
             )
 
-    def delete_file(self):
-        addr_from = request.remote_addr
-        log_message(
-            f"Se a mandado a actualizar un archivo que envio el addr: {addr_from} ",
-            func=self.upload_file,
-        )
-        # Nombre del archivo , str con el archivo
-        data = self.get_data_from_request()  # Tomar los bytes de la data
+    def update_file(self):
+        """
+        End point de guardar los archivos de flask
 
-        if data is None:  # Es que no se envió nada
-            # Retornar error de no file
-            return (
-                jsonify({"message": 'Bad Request: Parámetro "param" requerido'}),
-                HTTPStatus.BAD_REQUEST,
-            )
-        doc_name: str = pickle.loads(data)
-        doc_id = getShaRepr(doc_name)
-        log_message(
-            f"Se ha enviado a eliminar el documento {doc_name} con id {doc_id} ",
-            func=self.delete_file,
-        )
+        Returns:
+            _type_: _description_
+        """
+        return self.get_request(self._update_file)
+    
+    
+    def _delete_file(self,doc_id:int,doc_name:str):
+        """
+        Metodo para eliminar en el nodo el documento, Nota solo se eliminan los bytes no el contenido
+
+        Args:
+            doc_id (int): _description_
+            doc_name (str): _description_
+
+        Returns:
+            _type_: _description_
+        """
+        
         # Comprobar que está en la base de datos
         if not db.has_document(doc_id):  # Mandar error de que no se envió nada
             return (
@@ -976,9 +1038,17 @@ class StoreNode(Leader):
             f"Mandando a eliminar {doc_name} : {doc_id} de mi db y mis replicas",
             func=self.delete_file,
         )
-
+        document=db.get_document_by_id(doc_id)
+        
+        # Comprobar que el documento no este ya eliminado
+        
         try:
-            document = Document(doc_name, None)
+            
+            if document.record.is_delete:
+                log_message(f"El documento {doc_name} esta ya eliminado",func=self._delete_file)
+                return jsonify({"message":f"El documento {doc_name} esta ya eliminado"}),HTTPStatus.OK
+            
+            document.delete()
             ok_crud, nodes_save = self.Crud_action(
                 document=document,
                 sub_url="update_document_like_replica",
@@ -1004,7 +1074,7 @@ class StoreNode(Leader):
         except Exception as e:
             log_message(
                 f"Hubo un problema tratanto de eliminar el archivo {doc_name} Error:{e} \n {traceback.format_exc()}",
-                func=self.update_file,
+                func="_delete_file",
             )
             return (
                 jsonify(
@@ -1012,7 +1082,41 @@ class StoreNode(Leader):
                 ),
                 HTTPStatus.INTERNAL_SERVER_ERROR,
             )
+        
+    def delete_file(self):
+        addr_from = request.remote_addr
+        try:
+            log_message(
+                f"Se a mandado a eliminar un archivo que envio el addr: {addr_from} ",
+                func=self.delete_file,
+            )
+            # Nombre del archivo , str con el archivo
+            data = self.get_data_from_request()  # Tomar los bytes de la data
 
+            if data is None:  # Es que no se envió nada
+                # Retornar error de no file
+                log_message(f"No llega data desde el addr{addr_from}",func=self.delete_file)
+                return (
+                    jsonify({"message": 'Bad Request: Parámetro "param" requerido'}),
+                    HTTPStatus.BAD_REQUEST,
+                )
+            doc_name: str = pickle.loads(data)
+            
+            log_message(f"El documento a eliminar es {doc_name} de tipo {type(doc_name)}",func=self.delete_file)
+            doc_id = getShaRepr(doc_name)
+
+            redirection=self.redirect_request(name=doc_name,hash_name=doc_id)
+            if redirection is not None:
+                log_message(f"Se va a redireccionar la peticion de eliminar el archivo {doc_name} con id: {doc_id}",func=self.delete_file)
+                return redirection
+            log_message(
+                f"Se ha enviado a eliminar el documento {doc_name} con id {doc_id} ",
+                func=self.delete_file,
+            )
+
+            return self._delete_file(doc_id=doc_id,doc_name=doc_name)
+        except Exception as e:
+            log_message(f'Huboi un problema eliminando un archivo Error: {e} \n {traceback.format_exc()}',func=self.delete_file)
 
 if __name__ == "__main__":
     print("Hello from Storage node")

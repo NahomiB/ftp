@@ -10,7 +10,7 @@ from enum import Enum, auto
 
 def obj_to_bytes(obj:object)->bytes:
     return pickle.dumps(obj)
-def getShaRepr(data: str, max_value: int = 120000):
+def getShaRepr(data: str, max_value: int = 1024):
     """Hashea a SHA-1 los datos que entren y lo devuelve en un numero entre 1 y 16
 
     Args:
@@ -153,11 +153,23 @@ class ThreadingSet:
     
         
     def contains_item(self,item)->bool:
+        """
+        Dice si el elemento esta o no con seguridad ante hilos
+
+        Args:
+            item (_type_): _description_
+
+        Raises:
+            Exception: _description_
+
+        Returns:
+            bool: _description_
+        """
         if self._type!=None:
             if not isinstance(item,self._type):
                 raise Exception(f'Item debe ser de tipo {self._type} no de tipo {type(item)} item:{item}')
         with self._lock:
-            return item in self._lock
+            return item in self._set
         
     
     def delete_if_exits_item(self,item)->bool:
