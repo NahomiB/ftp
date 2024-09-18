@@ -4,9 +4,11 @@ import logging
 from helper.protocol_codes import *
 from helper.logguer import log_message
 from helper.utils import getShaRepr
+from helper.query_handle import QueryHandle
 from concurrent.futures import ThreadPoolExecutor, TimeoutError
 import zmq
 import pickle
+
 # Class to reference a Chord node
 class ChordNodeReference:
     """
@@ -49,7 +51,7 @@ class ChordNodeReference:
         except Exception as e:
             # print(f"ERROR sending data: {e} al nodo con id {self.id} e ip {self.ip}")
             log_message(
-                f"ERROR sending data: {e} al nodo con id {self.id} en la opcion {op} e ip {self.ip} y tiene una dimension de data{len(new_data)} ,Error:{str(traceback.format_exc())}",
+                f"ERROR sending data: {e} al nodo con id {self.id} en la opcion {op} e ip {self.ip} ,Error:{str(traceback.format_exc())}",
                 level="ERROR",
             )
             # logger.info()
@@ -199,7 +201,35 @@ class ChordNodeReference:
         """      
         return self._check_boolean_option(op=IS_DATA_SYNC,default_in_except=False)
     
+    
+    def is_data_base_stable(self)->bool:
+        """
+        True si la database es estable
+        False si no lo es o hubo error
 
+        Returns:
+            bool: _description_
+        """
+        return self._check_boolean_option(op=IS_DB_STABLE,default_in_except=False)
+    
+    ##############################
+    #                            #
+    #     Nuevo ahora para terminar la resincronizacion adecuada #
+    #                            #
+    ###############################
+    
+    def can_update_data(self)->bool:
+        """
+        Retorna True si ya sincronize mi data  se supone que mis antecesores
+        False si ocurrio un errror
+
+        Returns:
+            bool: _description_
+        """
+        return self._check_boolean_option(op=CAN_UPDATE_DATA,default_in_except=False)
+    
+   
+    
     def __str__(self) -> str:
         return f"ChordNodeReference:{self.id},{self.ip},{self.port}"
 

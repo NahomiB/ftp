@@ -1,4 +1,4 @@
-from .chord import *
+from chord.chord import *
 
 
 
@@ -113,8 +113,16 @@ class Leader(ChordNode):
         while not (self.is_stable and self.succ_list_ok):
             time.sleep(1) # mientras no sea estable
             log_message(f'Se mando a buscar la llave {key} pero no es estable la sit ',func=self.find_key_owner)
-        return super().find_key_owner(key)
-                      
+        
+        for i in range(5):
+            try:
+                return super().find_key_owner(key)
+            except Exception as e:
+                log_message(f"No se puede recuperar el duenno del la llave {key } en el intento {i}", func=self.find_key_owner)
+                time.sleep(i*2)
+        
+        log_message(f"Como se ha superado el maximo numero de intentos voy a devolverme a mi mismo",func=self.find_key_owner)
+        return self.ref
     def data_to_print(self):
         """Para poder añadir cosas a pintar"""
         log_message(f'Mi predecesor es {self.pred.id if self.pred else None} con ip {self.pred.ip if self.pred else None} ',level='INFO')
@@ -131,6 +139,8 @@ class Leader(ChordNode):
         log_message(f'Soy Estable {self.is_stable} ',func=self.show)
         
         log_message(f'El lider es {self.leader.id}',func=self.show)
+        
+        log_message(f"Soy el lider {self.i_am_leader}",func=self.data_to_print)
         
         log_message(f'La lista de sucesores es {self.succ_list}',func=self.show)
         
@@ -183,12 +193,14 @@ class Leader(ChordNode):
                     #log_message(f'Soy el lider pero no estoy solo por tanto mi predecesor es estable {self.pred.check_in_election()} y estoy en eleccion {in_election}',func=self.check_i_am_stable)
                     self.is_stable= not (self.pred.check_in_election() or in_election) # Si soy el lider y no estoy solo todo es estable si mi predecesor es estable
                     
-                else:# Si no soy el lider tengo que ver que yo no estoy en elección ni mi predecesor y además el lider sea estable
+                elif not self.i_am_alone:# Si no soy el lider tengo que ver que yo no estoy en elección ni mi predecesor y además el lider sea estable
                   #  log_message(f'Como no soy el lider compruebo si la red es estable {self.leader.check_network_stability()}, Estoy en eleccion {in_election} mi predecesor esta en eleccion {self.pred.check_in_election()}',func=self.check_i_am_stable)
-                   
+                    
                     is_stable=(not (in_election or self.pred.check_in_election())) and self.leader.check_network_stability()
                     self.is_stable=is_stable #if isinstance(is_stable,bool) else False
                   #  log_message(f'Ahora soy estable  {self.is_stable}',func=self.check_i_am_stable)
+                else:
+                    self.is_stable= not self.in_election
             except Exception as e:
                 log_message(f'Error en chequear si soy un nodo estable Error:{e}  {traceback.format_exc()}',func=self.is_stable)
                 self.is_stable=False # Si hay error => No es estable
@@ -392,6 +404,8 @@ class Leader(ChordNode):
     @leader.setter
     def leader(self,value):
         if not isinstance(value,ChordNodeReference):
+            self.leader_=self.ref
+            log_message(f'value:{value} no es de tipo ChordNodeReference es de tipo:{type(value)}',func="self.leader")
             raise Exception(f'value:{value} no es de tipo ChordNodeReference es de tipo:{type(value)}') 
         with self.leader_lock:
             self.leader_=value  
@@ -447,7 +461,24 @@ class Leader(ChordNode):
                                       
             except Exception as e:
                 log_message(f'Error chequeando si hay eleccion {e} \n {traceback.format_exc()}',func=self.check_election_valid)
-                    
+    
+    def _get_k_succ(self,k:int)->list[ChordNodeReference]:
+        """
+        Dado el factor k devuelve una lista con las referencias a los k sucesores
+
+        Args:
+            k (int): _description_
+
+        Returns:
+            list[ChordNodeReference]: _description_
+        """
+        succ:ChordNodeReference=self.succ # Pongo primero a mi sucesor
+        succ_list:list[ChordNodeReference]=self.succ_list # Capto la anterior primero
+        for i in range(k): # Iterar por la cant de nodos que tenemos 
+            succ_list[i]=succ
+            succ=succ.succ # Ahora el sucesor es el sucesor de mi sucesor
+        return succ_list
+    
     def check_succ_list(self,time_:int=0.1):
         check=True # Dice si hay que chequear o no la lista de sucesores
         while True:
@@ -463,13 +494,14 @@ class Leader(ChordNode):
                 
                 if not self.is_stable:# Si no se está estable esperar a estar estable
                     continue
+                #Esto funcionaba
+                #succ:ChordNodeReference=self.succ # Pongo primero a mi sucesor
+                #succ_list:list[ChordNodeReference]=self.succ_list # Capto la anterior primero
+                #for i in range(self.succ_list_count_): # Iterar por la cant de nodos que tenemos 
+                #    succ_list[i]=succ
+                #    succ=succ.succ # Ahora el sucesor es el sucesor de mi sucesor
                 
-                succ:ChordNodeReference=self.succ # Pongo primero a mi sucesor
-                succ_list:list[ChordNodeReference]=self.succ_list # Capto la anterior primero
-                for i in range(self.succ_list_count_): # Iterar por la cant de nodos que tenemos 
-                    succ_list[i]=succ
-                    succ=succ.succ # Ahora el sucesor es el sucesor de mi sucesor
-
+                succ_list:list[ChordNodeReference]=self._get_k_succ(self.succ_list_count_)
                 if not self.in_election and self.is_stable: #
                     self.succ_list=succ_list
                     self.succ_list_ok=True # Se puede volver a confiar en la lista de sucesores

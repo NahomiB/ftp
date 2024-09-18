@@ -72,12 +72,44 @@ class DistributedDataBase(SyncStoreNode):
         Returns:
             bool: _description_
         """
-        try:
-            return self.is_sync_data and self.leader.is_data_sync()
+        try:# Un and entre si yo soy estable y si el antecesor del lider es
+            if self.i_am_alone :
+                log_message(f"Como soy un solo nodo la db es estable <=> soy estable y la data esta sincronizada",func=self.is_db_stable)
+                return self.is_stable and self.is_sync_data
+                
+            return self.is_sync_data and self.leader.is_data_base_stable()
         except Exception as e:
             log_message(f'Hubo un error tratando de saber si la db es estable Error:{e} \n {traceback.format_exc()}',func=self.is_db_stable)
             return False
-            
+    
+    ########################
+    #                      #
+    #     OVERRIDE ZONE    #
+    #                      #
+    ########################
+    def wait_for_stability(self):
+        """
+        Este metodo espera hasta que la db sea estable para completar cualquier accion
+        """
+        log_message(f"Entrando a chechear la estabilidad",func=self.wait_for_stability)
+        addr_from = request.remote_addr
+        while not self.is_db_stable():
+            log_message(f'Esperando a que la db sea estable para tramitar el post de {addr_from} ',func=self.wait_for_stability)
+            time.sleep(0.5) # Tiempo de espera   
+    def upload_file(self):
+        self.wait_for_stability()
+        return super().upload_file()
+    def update_file(self):
+        self.wait_for_stability()
+        return super().update_file()
+    def delete_file(self):
+        self.wait_for_stability()
+        return super().delete_file()
+    def get_file_by_name(self):
+        self.wait_for_stability()
+        return super().get_file_by_name()
+        
+        
     
    
     
@@ -87,7 +119,7 @@ class DistributedDataBase(SyncStoreNode):
             
 
 if __name__ == "__main__":
-    log_message("Hello from Sync Storage node")
+    log_message("Hello from Distributed Data Base node")
     ip = socket.gethostbyname(socket.gethostname())
     node = DistributedDataBase(ip, m=3)
     node.start_node()  # Iniciar el pipeline
