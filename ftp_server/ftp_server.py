@@ -140,8 +140,40 @@ def gestionar_comando_cambiar_directorio(comando, directorio_actual, socket_clie
     socket_cliente.send(RESPUESTA_CAMBIO_DIRECTORIO_OK)
     return directorio_actual
 
-# Funciones adicionales para gestionar otros comandos como RETR, STOR, etc.
-# se implementarían de forma similar, con nombres claros y funciones separadas.
+def gestionar_comando_port(comando, cliente_socket):
+    """
+    Maneja el comando PORT, estableciendo una conexión entre el cliente y el servidor.
+    
+    Parámetros:
+    comando -- El comando PORT recibido del cliente (incluye la dirección IP y puerto).
+    cliente_socket -- El socket del cliente que envió el comando.
+    
+    Retorna:
+    data_socket -- El socket de datos que se ha establecido con el cliente.
+    """
+    # Dividir el comando para obtener los componentes
+    partes_direccion = comando.split()[1].split(',')
+    
+    direccion_ip = '.'.join(partes_direccion[:4])
+    
+    # Calcular el puerto a partir de las dos últimas partes del comando
+    puerto_datos = int(partes_direccion[4]) * 256 + int(partes_direccion[5])
+
+    try:
+    # Crear un socket de datos para conectarse al cliente
+        socket_datos = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket_datos.connect((direccion_ip, puerto_datos))
+        
+        # Enviar un mensaje 200 si la conexión fue exitosa
+        cliente_socket.send(b'200 Comando PORT ejecutado con exito.\r\n')
+        
+    except socket.error:
+        # Enviar un mensaje 425 si la conexión falla
+        cliente_socket.send(b'425 No se pudo abrir la conexion de datos.\r\n')
+        socket_datos = None  # Asegurarse de que el socket de datos no se use en caso de error
+
+    return socket_datos
+    
 
 def manejar_conexiones_entrantes(servidor_socket):
     """
