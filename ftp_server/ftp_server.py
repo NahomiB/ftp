@@ -1,5 +1,10 @@
-import os
+import socket
 import threading
+import os
+
+# Constantes de manejo del servidor
+
+NUMERO_DE_ESCUCHAS = 5
 
 # Constantes de respuesta del servidor
 RESPUESTA_USUARIO_OK = b'230 Usuario autenticado.\r\n'
@@ -8,6 +13,7 @@ RESPUESTA_SISTEMA = b'215 UNIX Type: L8\r\n'
 RESPUESTA_UTF8_OK = b'200 UTF8 habilitado.\r\n'
 RESPUESTA_CAMBIO_DIRECTORIO_OK = b'250 Directorio cambiado con exito.\r\n'
 RESPUESTA_ERROR_SINTAXIS = b'500 Error de sintaxis, comando no reconocido.\r\n'
+
 
 def gestionar_conexion_cliente(socket_cliente):
     """
@@ -154,6 +160,38 @@ def manejar_conexiones_entrantes(servidor_socket):
         hilo_cliente = threading.Thread(target=gestionar_conexion_cliente, args=(cliente_socket,))
         hilo_cliente.daemon = True  # Permite que el hilo se cierre cuando el programa principal termina
         hilo_cliente.start()
+        
+def configurar_socket_servidor(host='0.0.0.0', puerto=21):
+    """
+    Configura el socket de control del servidor FTP para aceptar conexiones de clientes.
+    
+    Parámetros:
+    host -- Dirección IP en la que el servidor escucha (por defecto '0.0.0.0', todas las interfaces)
+    puerto -- Puerto en el que el servidor escucha (por defecto 21, puerto FTP estándar)
+    
+    Retorna:
+    server_socket -- El socket configurado para aceptar conexiones de clientes
+    """
+    try:
+        # Crear un socket TCP/IP
+        servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        
+        # Vincular el socket a la dirección y puerto proporcionados
+        servidor.bind((host, puerto))
+    except OSError:
+        # Si el puerto no está disponible, asignar uno dinámicamente
+        print("El puerto especificado no está disponible, asignando un puerto dinámico.")
+        servidor.bind((host, 0))
+
+    # Escuchar hasta 5 conexiones entrantes
+    servidor.listen(NUMERO_DE_ESCUCHAS)
+    
+    # Obtener el puerto final en el que está escuchando el servidor
+    puerto_final = servidor.getsockname()[1]
+    print(f"Servidor escuchando en {host}:{puerto_final}")
+    
+    return servidor
+    
 
 def iniciar_servidor_ftp():
     """
