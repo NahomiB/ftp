@@ -605,6 +605,8 @@ def solicitud_unirse_automatica(nodo_dato: NodoDato, indice=0):
     else:
         if nodo_dato.verbose:
             print("Todas las IPs predeterminadas fallaron, intentando usar Broadcast...")
+        else:
+            print("Usando broadcast para unirse")
         
         solicitud_unirse_broadcast(nodo_dato)
 

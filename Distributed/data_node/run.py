@@ -1,3 +1,8 @@
+import sys
+
+sys.path.append('/app')
+sys.path.append('/app/distributed/data_node')
+
 import threading; 
 from command import (manejar_comando_dele, manejar_comando_dele_dir, manejar_comando_ed, manejar_comando_union, manejar_comando_lista, manejar_comando_mkd, manejar_comando_lectura, manejar_comando_retr, manejar_comando_rmd, manejar_comando_rp, manejar_comando_sp, manejar_comando_ss, manejar_comando_stor, manejar_comando_stor_dir); 
 from table import (manejar_comando_gk, manejar_comando_gs, manejar_comando_ping, solicitud_unirse_automatica, NodoDato)
@@ -113,19 +118,17 @@ def iniciar_nodo():
     solicitud_unirse_automatica(nodo_dato)
 
     while True:
-        input("Presiona Enter para continuar...")
-
         print("-------------------------------------------------")
         print()
 
-        while nodo_dato.updating:
+        while nodo_dato.actualizando:
             pass
 
         print(f"Nodo {nodo_dato.puerto}")
-        print(f"Predecessor: {nodo_dato.predecessor}")
-        print(f"Sucesores: {nodo_dato.successors}")
-        print(f"Tabla de dedos (mayores): {nodo_dato.finger_table_bigger}")
-        print(f"Tabla de dedos (menores): {nodo_dato.finger_table_smaller}")
+        print(f"Predecessor: {nodo_dato.predecesor}")
+        print(f"Sucesores: {nodo_dato.sucesores}")
+        print(f"Tabla de dedos (mayores): {nodo_dato.tabla_fingers_mayor}")
+        print(f"Tabla de dedos (menores): {nodo_dato.tabla_fingers_menor}")
 
-if __name__ == "__main__":
-    iniciar_nodo()
+
+iniciar_nodo()

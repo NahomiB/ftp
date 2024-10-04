@@ -8,10 +8,12 @@ COPY ftp_server/ftp_server.py /app/ftp_server.py
 # Define el directorio de trabajo
 WORKDIR /app
 
+ENV PYTHONPATH=/app/distributed
+
 # Define un volumen para los datos
 VOLUME /data
 
 # Expone el puerto
 EXPOSE 50
 
-CMD ["python", "-m", "ftp_server.py"]
+CMD ["python", "ftp_server.py"]

@@ -18,7 +18,7 @@ NUMERO_DE_ESCUCHAS = 5
 transferencia_en_progreso = False
 cierre_en_progreso = False
 
-nodos_almacenamiento = [('',0), ('',0), ('',0)]
+nodos_almacenamiento = [('172.17.0.2',34589), (' 172.17.0.3',43283)]
 actualizando_nodos = False
 contando_lecturas = 0
 bloqueo_lectura = threading.Lock()

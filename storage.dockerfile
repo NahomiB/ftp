@@ -7,10 +7,12 @@ COPY distributed/data_node /app/distributed/data_node/
 # Define el directorio de trabajo
 WORKDIR /app
 
+ENV PYTHONPATH=/app/distributed
+
 # Define un volumen para los datos
 VOLUME /data
 
 # Expone el puerto
 EXPOSE 50
 
-CMD ["python", "-m", "distributed/data_node"]
+CMD ["python", "-m", "data_node"]
