@@ -2,7 +2,7 @@
 import os
 from platform import node
 import threading
-from distributed.data_node import aceptar_conexiones
+from distributed.data_node.run import aceptar_conexiones
 from distributed.data_node.table import NodoDato
 
 
