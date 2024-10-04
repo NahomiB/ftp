@@ -13,5 +13,3 @@ En resumen, este proyecto busca implementar un sistema FTP distribuido que combi
 ## Arquitectura
 
 ## Instrucciones de utilización
-
-

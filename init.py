@@ -6,12 +6,7 @@ sys.path.append('/app/distributed/data_node')
 import os
 from platform import node
 import threading
-<<<<<<< HEAD
 from distributed.data_node.run import aceptar_conexiones
-=======
-
-from distributed.data_node import aceptar_conexiones
->>>>>>> 613d42f4c424481a7854f053a828dc6542514817
 from distributed.data_node.table import NodoDato
 
 
