@@ -1,4 +1,5 @@
 import datetime
+import json
 import os
 import platform
 import random
@@ -6,6 +7,8 @@ import socket
 import threading
 import time
 import uuid
+
+from distributed.data_node.utils import encontrar_sucesor, hacer_ping_nodo
 
 
 # Constantes de manejo del servidor
@@ -15,14 +18,119 @@ NUMERO_DE_ESCUCHAS = 5
 transferencia_en_progreso = False
 cierre_en_progreso = False
 
+nodos_almacenamiento = [('',0), ('',0), ('',0)]
+actualizando_nodos = False
+contando_lecturas = 0
+bloqueo_lectura = threading.Lock()
+
 def obtener_nodo_almacenamiento():
-    return True
+    """Obtiene un nodo del anillo"""
+    global nodos_almacenamiento, actualizando_nodos, contando_lecturas
 
-def encontrar_sucesor():
-    return True
+    while actualizando_nodos:
+        pass
 
-def actualizar_nodos_almacenamiento():
-    return True
+    bloqueo_lectura.acquire()
+    contando_lecturas += 1
+    bloqueo_lectura.release()
+
+    indices = list(range(len(nodos_almacenamiento)))
+    
+    while indices:
+        indice_elegido = random.randrange(len(indices))
+
+        if hacer_ping_nodo(*nodos_almacenamiento[indices[indice_elegido]]):
+            contando_lecturas -= 1
+            return nodos_almacenamiento[indices[indice_elegido]]
+
+        else:
+            indices.pop(indice_elegido)
+
+    bloqueo_lectura.acquire()
+    contando_lecturas -= 1
+    bloqueo_lectura.release()
+
+def difundir_nodo_almacenamiento():
+    ip_difusion = '<broadcast>'
+    puerto_difusion = 37020
+    mensaje = json.dumps({'accion': 'reportar'})
+    
+    with socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP) as sock:
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+        sock.settimeout(5)
+        
+        try:
+            sock.sendto(mensaje.encode(), (ip_difusion, puerto_difusion))
+
+            print(f"Mensaje de difusión enviado: {mensaje}")
+            
+            while True:
+                try:
+                    respuesta, _ = sock.recvfrom(1024)
+                    datos_respuesta = json.loads(respuesta.decode())
+                    
+                    if datos_respuesta.get('accion') == 'reportando':
+                        ip = datos_respuesta.get('ip')
+                        puerto = datos_respuesta.get('puerto')
+
+                        try:
+                            print(f"Detectado {ip}:{puerto}")
+                            return ip, puerto
+                        except:
+                            pass
+                
+                except socket.timeout:
+                    print("Tiempo de espera de la solicitud de difusión agotado")
+                    break
+        except Exception as e:
+            print(f"Excepción en difundir_nodo_almacenamiento: {e}")
+
+def actualizar_lista_nodos_almacenamiento():
+    """Refresca la lista de nodos de almacenamiento"""
+    global nodos_almacenamiento, actualizando_nodos, contando_lecturas
+
+    while True:
+        nuevos_nodos_almacenamiento = set()
+
+        for ip, puerto in nodos_almacenamiento:
+            socket_nodo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            
+            try:    
+                socket_nodo.connect((ip, puerto))
+
+                socket_nodo.sendall(f"GK".encode())
+                respuesta = socket_nodo.recv(1024).decode().strip()
+
+                if respuesta.startswith("220"):
+                    nuevos_nodos_almacenamiento.add((ip, puerto))
+
+                    for direccion in respuesta.split(" ")[1:]:
+                        nuevos_nodos_almacenamiento.add((direccion.split(":")[0], int(direccion.split(":")[1])))
+
+            except:
+                pass
+
+            finally:
+                socket_nodo.close()
+
+        if not nuevos_nodos_almacenamiento:
+            nodo_encontrado = difundir_nodo_almacenamiento()
+
+            if nodo_encontrado:
+                nuevos_nodos_almacenamiento.add(nodo_encontrado)
+
+        if nuevos_nodos_almacenamiento:
+            actualizando_nodos = True
+
+            while contando_lecturas > 0:
+                pass
+
+            nodos_almacenamiento = list(nuevos_nodos_almacenamiento)
+            print(nodos_almacenamiento)
+
+            actualizando_nodos = False
+
+        time.sleep(5)
 
 def gestionar_conexion_cliente(socket_cliente):
     """
@@ -795,22 +903,6 @@ def duplicar_archivo(archivo_origen, archivo_destino):
         return True
     except:
         return False
-
-def obtener_ip_host():
-    """Obtiene la dirección IP de la máquina local."""
-    try:
-        # Crear un socket UDP
-        socket_udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        # Conectar a un servidor DNS público para determinar la IP local
-        socket_udp.connect(("8.8.8.8", 80))
-        ip_local = socket_udp.getsockname()[0]
-    except Exception as e:
-        print(f"Error al obtener la IP: {e}")
-        ip_local = None  # Manejo de errores para devolver None si falla
-    finally:
-        socket_udp.close()  # Asegurarse de cerrar el socket
-
-    return ip_local
 
 def duplicar_carpeta(origen_carpeta, destino_carpeta):
     """Crea una copia de una carpeta en una nueva ubicación."""
