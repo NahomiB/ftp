@@ -739,15 +739,15 @@ def request_join(nodo_dato: NodoDato, ip_nodo, puerto_nodo):
                     if path not in nodo_dato.datos or nodo_dato.datos[path][1] < version:
                         node_socket.send(f"220".encode())
                             
-                        data_json = ""
+                        datos_json = ""
 
                         count = 0
                         while count < size:
-                            data = node_socket.recv(4096)
-                            data_json += data.decode()
-                            count += len(data)
+                            datos = node_socket.recv(4096)
+                            datos_json += datos.decode()
+                            count += len(datos)
 
-                        nodo_dato.datos[path] = json.loads(data_json), version
+                        nodo_dato.datos[path] = json.loads(datos_json), version
                         node_socket.send(f"220".encode())
 
                         if nodo_dato.verbose:
@@ -771,9 +771,9 @@ def request_join(nodo_dato: NodoDato, ip_nodo, puerto_nodo):
 
                             count = 0
                             while count < size:
-                                data = node_socket.recv(4096)
-                                file.write(data)
-                                count += len(data)
+                                datos = node_socket.recv(4096)
+                                file.write(datos)
+                                count += len(datos)
                             
                             nodo_dato.datos[key] = key, version
                             node_socket.send(f"220".encode())
