@@ -22,8 +22,6 @@ def iniciar_nodo():
     hilo_aceptar_conexiones.start()
 
     while True:
-        input("Presiona Enter para continuar...")
-
         print("-------------------------------------------------")
         print()
 
