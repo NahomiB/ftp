@@ -796,22 +796,6 @@ def duplicar_archivo(archivo_origen, archivo_destino):
     except:
         return False
 
-def obtener_ip_host():
-    """Obtiene la dirección IP de la máquina local."""
-    try:
-        # Crear un socket UDP
-        socket_udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        # Conectar a un servidor DNS público para determinar la IP local
-        socket_udp.connect(("8.8.8.8", 80))
-        ip_local = socket_udp.getsockname()[0]
-    except Exception as e:
-        print(f"Error al obtener la IP: {e}")
-        ip_local = None  # Manejo de errores para devolver None si falla
-    finally:
-        socket_udp.close()  # Asegurarse de cerrar el socket
-
-    return ip_local
-
 def duplicar_carpeta(origen_carpeta, destino_carpeta):
     """Crea una copia de una carpeta en una nueva ubicación."""
     gestionar_comando_crear_directorio(os.path.basename(destino_carpeta), None, os.path.dirname(destino_carpeta))
