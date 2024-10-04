@@ -118,14 +118,14 @@ def iniciar_nodo():
         print("-------------------------------------------------")
         print()
 
-        while nodo_dato.updating:
+        while nodo_dato.actualizando:
             pass
 
         print(f"Nodo {nodo_dato.puerto}")
-        print(f"Predecessor: {nodo_dato.predecessor}")
-        print(f"Sucesores: {nodo_dato.successors}")
-        print(f"Tabla de dedos (mayores): {nodo_dato.finger_table_bigger}")
-        print(f"Tabla de dedos (menores): {nodo_dato.finger_table_smaller}")
+        print(f"Predecessor: {nodo_dato.predecesor}")
+        print(f"Sucesores: {nodo_dato.sucesores}")
+        print(f"Tabla de dedos (mayores): {nodo_dato.tabla_fingers_mayor}")
+        print(f"Tabla de dedos (menores): {nodo_dato.tabla_fingers_menor}")
 
 if __name__ == "__main__":
     iniciar_nodo()
