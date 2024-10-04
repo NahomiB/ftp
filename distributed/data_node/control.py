@@ -1,5 +1,5 @@
 import socket
-from utils import get_host_ip
+from utils import obtener_ip_host
 
 
 def configurar_socket_control(puerto=0, max_conexiones=5):
@@ -19,7 +19,7 @@ def configurar_socket_control(puerto=0, max_conexiones=5):
         # Escuchar conexiones
         socket_servidor.listen(max_conexiones)
         
-        ip = get_host_ip()
+        ip = obtener_ip_host()
         puerto_asignado = socket_servidor.getsockname()[1]
         
         print(f"Escuchando en {ip}:{puerto_asignado}")
