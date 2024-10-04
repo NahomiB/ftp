@@ -1,7 +1,12 @@
+import datetime
+import os
+import platform
 import random
 import socket
 import threading
-import os
+import time
+import uuid
+
 
 # Constantes de manejo del servidor
 
@@ -9,6 +14,15 @@ NUMERO_DE_ESCUCHAS = 5
 
 transferencia_en_progreso = False
 cierre_en_progreso = False
+
+def obtener_nodo_almacenamiento():
+    return True
+
+def encontrar_sucesor():
+    return True
+
+def actualizar_nodos_almacenamiento():
+    return True
 
 def gestionar_conexion_cliente(socket_cliente):
     """
@@ -57,39 +71,34 @@ def gestionar_conexion_cliente(socket_cliente):
                 modo = gestionar_comando_modo_transferencia(socket_cliente, comando)
             
             # Comandos relacionados con servicios de FTP
-            
             elif comando.startswith('RETR'):
                 gestionar_comando_descargar_archivo(comando[5:].strip(), socket_cliente, socket_datos, directorio_actual)
                 socket_datos = None  # Cerrar socket de datos después de descarga
             elif comando.startswith('STOR'):
                 gestionar_comando_subir_archivo(comando[5:].strip(), socket_cliente, socket_datos, directorio_actual)
                 socket_datos = None
-                
-            
+            elif comando.startswith('STOU'):
+                # Se genera el nombre único en el momento
+                gestionar_comando_subir_archivo(f"archivo_{uuid.uuid4().hex}", socket_cliente, socket_datos, directorio_actual)
+                socket_datos = None
+            elif comando.startswith('RNFR'):
+                gestionar_comando_renombrar_archivo(comando[5:].strip(), socket_cliente, directorio_actual)
+            elif comando.startswith('DELE'):
+                gestionar_comando_eliminar_archivo(comando[5:].strip(), socket_cliente, directorio_actual)
+            elif comando.startswith('RMD'):
+                gestionar_comando_eliminar_directorio(comando[4:].strip(), socket_cliente, directorio_actual)
+            elif comando.startswith('MKD'):
+                gestionar_comando_crear_directorio(comando[4:].strip(), socket_cliente, directorio_actual)
+            elif comando.startswith('PWD'):
+                gestionar_comando_pwd(socket_cliente, directorio_actual)
             elif comando.startswith('NLST') or comando.startswith('LIST'):
                 gestionar_comando_listado_directorio(socket_cliente, socket_datos, comando, directorio_actual)
                 socket_datos = None  # Resetear socket de datos después de uso
-                
             elif comando.startswith('SYST'):
-                gestionar_comando_sistema(socket_cliente)
-
-            
-
-            # Comandos de manipulación de archivos y directorios
-            elif comando.startswith('PWD'):
-                gestionar_comando_pwd(socket_cliente, directorio_actual)
-            elif comando.startswith('DELE'):
-                gestionar_comando_eliminar_archivo(comando[5:].strip(), socket_cliente, directorio_actual)
-            elif comando.startswith('MKD'):
-                gestionar_comando_crear_directorio(comando[4:].strip(), socket_cliente, directorio_actual)
-            elif comando.startswith('RMD'):
-                gestionar_comando_eliminar_directorio(comando[4:].strip(), socket_cliente, directorio_actual)
-            elif comando.startswith('RNFR'):
-                gestionar_comando_renombrar_archivo(comando[5:].strip(), socket_cliente, directorio_actual)
-
+                gestionar_comando_sistema(socket_cliente)        
             # Si el comando no es reconocido
             else:
-                socket_cliente.send(RESPUESTA_ERROR_SINTAXIS)
+                socket_cliente.send(b'503 Error de sintaxis, comando no reconocido.\r\n')
     except (ConnectionAbortedError, ConnectionResetError):
         print("Conexión perdida con el cliente.")
     finally:
@@ -382,9 +391,605 @@ def gestionar_comando_modo_transferencia(socket_cliente, comando):
 
     return modo_actual
 
+def gestionar_comando_descargar_archivo(nombre_archivo, socket_cliente, socket_datos, directorio_actual, ip_nodo=None, puerto_nodo=None):
+    """
+    Maneja el comando RETR, que transfiere una copia del archivo especificado al cliente.
+    """
+    
+    ruta_completa = os.path.join(directorio_actual, nombre_archivo)
+
+    try:
+        while ip_nodo is None or puerto_nodo is None:
+            ip_nodo, puerto_nodo = obtener_nodo_almacenamiento()
+
+        # Encontrar el sucesor donde se almacena el archivo
+        try:
+            ip_nodo, puerto_nodo = encontrar_sucesor(ruta_completa, ip_nodo, puerto_nodo)
+        except Exception as e:
+            print(f"Error al encontrar el sucesor: {e}")
+            gestionar_comando_descargar_archivo(nombre_archivo, socket_cliente, socket_datos, directorio_actual)
+            return
+
+        # Conectar al nodo donde se encuentra el archivo
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as socket_nodo:
+            socket_nodo.connect((ip_nodo, puerto_nodo))
+            print(f"Conexión establecida con el nodo {ip_nodo}:{puerto_nodo}")
+            socket_nodo.sendall(f"RETR 0 {ruta_completa}".encode())
+
+            respuesta = socket_nodo.recv(1024).decode().strip()
+
+            if respuesta.startswith("220"):
+                parametros = respuesta[4:].strip().split(" ")
+                tamaño_archivo = int(parametros[0])
+
+                nodos_auxiliares = [direccion.split(":") for direccion in parametros[1:]] if len(parametros) > 1 else []
+
+                if socket_cliente:
+                    socket_cliente.send(b"150 Abriendo conexion de datos en modo binario.\r\n")
+
+                    contador_bytes = 0
+                    socket_nodo.send(b"220 Ok")
+
+                    while contador_bytes < tamaño_archivo:
+                        try:
+                            datos = socket_nodo.recv(4096)
+                            if not datos:
+                                break
+                        except Exception as e:
+                            print(f"Error al recibir datos: {e}")
+                            if not nodos_auxiliares:
+                                cerrar_conexion_y_enviar_error(socket_nodo, socket_cliente)
+                                return
+
+                            while nodos_auxiliares:
+                                ip_aux, puerto_aux = nodos_auxiliares.pop(0)
+                                if reintentar_conexion(socket_nodo, ip_aux, puerto_aux, contador_bytes, ruta_completa):
+                                    break
+                            continue
+
+                        socket_datos.sendall(datos)
+                        contador_bytes += len(datos)
+
+                    print("Transferencia completada.")
+                    if socket_cliente:
+                        socket_cliente.send(b"226 Transferencia completa.\r\n")
+
+                elif respuesta.startswith("550"):
+                    ip_aux, puerto_aux = respuesta.split(" ")[1].split(":")
+                    gestionar_comando_descargar_archivo(nombre_archivo, socket_cliente, socket_datos, directorio_actual, ip_aux, int(puerto_aux))
+                    return
+
+                else:
+                    socket_cliente.send(b"550 Archivo no encontrado.\r\n")
+
+    except Exception as e:
+        print(f"Se ha producido un error: {e}")
+        if socket_cliente:
+            socket_cliente.send(b"451 Accion abortada: error local en el procesamiento.\r\n")
+            
+    socket_datos.close()
+
+def reintentar_conexion(socket_nodo, ip_aux, puerto_aux, contador_bytes, ruta_archivo):
+    """
+    Intenta reconectar a un nodo auxiliar para continuar la descarga.
+    """
+    try:
+        socket_nodo.close()
+        socket_nodo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket_nodo.connect((ip_aux, puerto_aux))
+        
+        print(f"Conexión establecida con el nodo auxiliar {ip_aux}:{puerto_aux}")
+        
+        socket_nodo.sendall(f"RETR {contador_bytes} {ruta_archivo}".encode())
+
+        respuesta = socket_nodo.recv(1024).decode().strip()
+        if respuesta.startswith("220"):
+            socket_nodo.send(b"220 Ok")
+            return True
+        
+    except Exception as e:
+        print(f"Error al conectarse al nodo auxiliar: {e}")
+    
+    return False
+
+def cerrar_conexion_y_enviar_error(socket_nodo, socket_cliente):
+    """
+    Cierra la conexión y envía un mensaje de error al cliente.
+    """
+    socket_nodo.close()
+    if socket_cliente:
+        socket_cliente.send(b"451 Accion abortada: error local en el procesamiento.\r\n")
+
+def gestionar_comando_subir_archivo(nombre_archivo, socket_cliente, socket_datos, directorio_actual, ip_nodo=None, puerto_nodo=None):
+    
+    ruta_archivo = os.path.join(directorio_actual, nombre_archivo)
+
+    try:
+        while ip_nodo is None or puerto_nodo is None:
+            ip_nodo, puerto_nodo = obtener_nodo_almacenamiento()
+
+        # Localizar el sucesor donde se debe guardar el archivo
+        ip_nodo, puerto_nodo = encontrar_sucesor(ruta_archivo, ip_nodo, puerto_nodo)
+
+        # Establecer conexión con el nodo
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as socket_nodo:
+            socket_nodo.connect((ip_nodo, puerto_nodo))
+            print(f"Conectado a {ip_nodo}:{puerto_nodo}")
+            socket_nodo.sendall(f"STOR {ruta_archivo}".encode())
+
+            respuesta = socket_nodo.recv(1024).decode().strip()
+
+            if respuesta.startswith("220"):
+                if socket_cliente:
+                    socket_cliente.send(b"150 Abriendo conexion de datos en modo binario para la transferencia del archivo.\r\n")
+
+                socket_nodo.send(b"220 Ok")
+
+                contador_bytes = 0
+                while True:
+                    datos = socket_datos.recv(4096)
+                    if not datos:
+                        break
+                    socket_nodo.sendall(datos)
+                    contador_bytes += len(datos)
+
+                # Proceso de cierre y confirmación
+                if registrar_archivo_stor(nombre_archivo, f"-rw-r--r-- 1 0 0 {contador_bytes} {datetime.now().strftime('%b %d %H:%M')} {os.path.basename(nombre_archivo)}", directorio_actual):
+                    if socket_cliente:
+                        socket_cliente.send(b"226 Transferencia completa.\r\n")
+                    print("Transferencia completa.")
+                else:
+                    if socket_cliente:
+                        socket_cliente.send(b"451 Accion solicitada abortada: error local en el procesamiento.\r\n")
+                    print("Error al registrar el archivo.")
+
+            elif respuesta.startswith("550"):
+                ip_aux, puerto_aux = respuesta.split(" ")[1].split(":")
+                gestionar_comando_subir_archivo(nombre_archivo, socket_cliente, socket_datos, directorio_actual, ip_aux, int(puerto_aux))
+                return
+
+    except Exception as e:
+        print(f"Se ha producido un error: {e}")
+        if socket_cliente:
+            socket_cliente.send(b"451 Accion solicitada abortada: error local en el procesamiento.\r\n")
+        else:
+            raise e
+
+def registrar_archivo_stor(nombre_directorio, info_archivo, directorio_actual, ip_nodo=None, puerto_nodo=None):
+    """
+    Inserta un archivo en la lista de la carpeta padre.
+    """
+    
+    # Normaliza la ruta del directorio
+    ruta_directorio = os.path.normpath(os.path.join(directorio_actual, nombre_directorio))
+
+    try:
+        # Obtener nodo de almacenamiento si no se especifica
+        while ip_nodo is None or puerto_nodo is None:
+            ip_nodo, puerto_nodo = obtener_nodo_almacenamiento()
+
+        # Localizar el sucesor para el directorio actual
+        ip_nodo, puerto_nodo = encontrar_sucesor(directorio_actual, ip_nodo, puerto_nodo)
+
+        # Establecer conexión con el nodo de almacenamiento
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as socket_nodo:
+            socket_nodo.connect((ip_nodo, puerto_nodo))
+            print(f"Conectado a {ip_nodo}:{puerto_nodo}")
+
+            # Preparar el comando STORDIR
+            longitud_directorio = len(directorio_actual) + 1
+            longitud_ruta = longitud_directorio + len(ruta_directorio) + 1
+            comando = f"STORDIR {longitud_directorio} {longitud_ruta} {directorio_actual} {ruta_directorio} {info_archivo}"
+            socket_nodo.sendall(comando.encode())
+
+            # Esperar la respuesta del nodo
+            respuesta = socket_nodo.recv(1024).decode().strip()
+
+            # Manejar la respuesta
+            if respuesta.startswith("220"):
+                print("Archivo insertado correctamente.")
+                return True
+            
+            elif respuesta.startswith("550"):
+                ip_aux, puerto_aux = respuesta.split(" ")[1].split(":")
+                return registrar_archivo_stor(nombre_directorio, info_archivo, directorio_actual, ip_aux, int(puerto_aux))
+
+            else:
+                print("Error inesperado al insertar el archivo.")
+                return False
+
+    except Exception as e:
+        print(f"Se ha producido un error: {e}")
+        return False
+
+def gestionar_comando_eliminar_archivo(nombre_archivo, socket_cliente, directorio_actual, ip_nodo=None, puerto_nodo=None):
+    """Respuesta para el comando DELE, busca el nodo donde se encuentra el archivo especificado y, si lo encuentra, lo elimina de ese nodo."""
+    ruta_archivo = os.path.join(directorio_actual, nombre_archivo)
+
+    try:
+        # Obtener el nodo de almacenamiento si no se ha especificado
+        while ip_nodo is None or puerto_nodo is None:
+            ip_nodo, puerto_nodo = obtener_nodo_almacenamiento()
+
+        # Encontrar el sucesor donde se almacena el archivo
+        try:
+            ip_nodo, puerto_nodo = encontrar_sucesor(ruta_archivo, ip_nodo, puerto_nodo)
+        except Exception as e:
+            print(f"Error al encontrar el sucesor: {e}")
+            gestionar_comando_eliminar_archivo(nombre_archivo, socket_cliente, directorio_actual)
+            return
+
+        # Conectar al nodo donde se encuentra el archivo
+        socket_nodo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket_nodo.connect((ip_nodo, puerto_nodo))
+
+        print(f"Conectado a {ip_nodo}:{puerto_nodo}")
+        socket_nodo.sendall(f"DELE {ruta_archivo}".encode())
+
+        # Recibir respuesta del nodo
+        respuesta = socket_nodo.recv(1024).decode().strip()
+
+        if respuesta.startswith("220"):
+            socket_nodo.close()
+
+            if enviar_comando_eliminar_dir(nombre_archivo, directorio_actual) and socket_cliente:
+                socket_cliente.send(b"250 Archivo eliminado exitosamente.\r\n")
+            elif socket_cliente:
+                socket_cliente.send(b"451 Accion solicitada abortada: error local en el procesamiento.\r\n")
+
+        elif respuesta.startswith("550"):
+            ip, puerto = respuesta.split(" ")[1].split(":")
+            socket_nodo.close()
+            gestionar_comando_eliminar_archivo(nombre_archivo, socket_cliente, directorio_actual, ip, int(puerto))
+            return
+
+        elif socket_cliente:
+            socket_cliente.send(b"550 Archivo no encontrado.\r\n")
+
+    except Exception as e:
+        print(f"Error: {e}")
+        if socket_cliente:
+            socket_cliente.send(b"451 Accion solicitada abortada: error local en el procesamiento.\r\n")
+
+def enviar_comando_eliminar_dir(nombre_directorio, directorio_actual, ip_nodo=None, puerto_nodo=None):
+    """Elimina un archivo de la lista de la carpeta padre."""
+    ruta_directorio = os.path.normpath(os.path.join(directorio_actual, nombre_directorio))
+
+    try:
+        # Obtener el nodo de almacenamiento si no se ha especificado
+        while ip_nodo is None or puerto_nodo is None:
+            ip_nodo, puerto_nodo = obtener_nodo_almacenamiento()
+
+        # Encontrar el sucesor donde se debe eliminar el archivo
+        try:
+            ip_nodo, puerto_nodo = encontrar_sucesor(directorio_actual, ip_nodo, puerto_nodo)
+        except Exception as e:
+            print(f"Error al encontrar el sucesor: {e}")
+            return enviar_comando_eliminar_dir(nombre_directorio, directorio_actual)
+
+        # Conectar al nodo correspondiente
+        socket_nodo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket_nodo.connect((ip_nodo, puerto_nodo))
+        
+        print(f"Conectado a {ip_nodo}:{puerto_nodo}")
+        
+        # Enviar el comando DELEDIR con la longitud del directorio actual y las rutas
+        socket_nodo.sendall(f"DELEDIR {len(directorio_actual) + 1} {directorio_actual} {ruta_directorio}".encode())
+
+        # Recibir respuesta del nodo
+        respuesta = socket_nodo.recv(1024).decode().strip()
+
+        if respuesta.startswith("220"):
+            socket_nodo.close()
+            return True
+
+        elif respuesta.startswith("550"):
+            ip, puerto = respuesta.split(" ")[1].split(":")
+            socket_nodo.close()
+            return enviar_comando_eliminar_dir(nombre_directorio, directorio_actual, ip, int(puerto))
+        
+        else:
+            return False
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return False
+
+def gestionar_comando_renombrar_archivo(nombre_antiguo, socket_cliente, directorio_actual, ip_nodo=None, puerto_nodo=None):
+    """Maneja el comando RNFR para renombrar un directorio."""
+    ruta_directorio = os.path.join(directorio_actual, nombre_antiguo)
+
+    try:
+        while ip_nodo is None or puerto_nodo is None:
+            ip_nodo, puerto_nodo = obtener_nodo_almacenamiento()
+
+        try:
+            ip_nodo, puerto_nodo = encontrar_sucesor(ruta_directorio, ip_nodo, puerto_nodo)
+        except:
+            gestionar_comando_renombrar_archivo(nombre_antiguo, socket_cliente, directorio_actual)
+            return
+        
+        socket_nodo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket_nodo.connect((ip_nodo, puerto_nodo))
+        
+        print(f"Conectado a {ip_nodo}:{puerto_nodo}")
+        
+        socket_nodo.sendall(f"ED {ruta_directorio}".encode())
+
+        respuesta = socket_nodo.recv(1024).decode().strip()
+        
+        socket_nodo.close()
+
+        if respuesta.startswith("220"):
+            tipo = respuesta[4:]
+            
+            socket_cliente.send(b"350 Accion de archivo solicitada pendiente de mas informacion.\r\n")
+
+            respuesta = socket_cliente.recv(1024).decode().strip()
+
+            if respuesta.startswith("RNTO"):
+                nuevo_nombre = respuesta[5:]
+                nueva_ruta = os.path.join(directorio_actual, nuevo_nombre)
+                
+                if tipo == "Archivo":
+                    if duplicar_archivo(ruta_directorio, nueva_ruta):
+                        gestionar_comando_eliminar_archivo(os.path.basename(ruta_directorio), None, os.path.normpath(os.path.dirname(ruta_directorio)))
+                        socket_cliente.send(b"250 Accion de archivo solicitada, completada.\r\n")
+                    else:
+                        socket_cliente.send(b"550 Accion solicitada abortada: error local en el procesamiento.\r\n")
+                
+                elif tipo == "Carpeta":
+                    if duplicar_carpeta(ruta_directorio, nueva_ruta):
+                        gestionar_comando_eliminar_directorio(os.path.basename(ruta_directorio), None, os.path.normpath(os.path.dirname(ruta_directorio)))
+                        socket_cliente.send(b"250 Accion de archivo solicitada, completada.\r\n")
+                    else:
+                        socket_cliente.send(b"550 Accion solicitada abortada: error local en el procesamiento.\r\n")
+
+        else:
+            socket_cliente.send(b"550 Accion solicitada no realizada.\r\n")
+
+    except Exception as e:
+        print(f"Error: {e}")
+        socket_cliente.send(b"451 Accion solicitada abortada: error local en el procesamiento.\r\n")
+
+def duplicar_archivo(archivo_origen, archivo_destino):
+    """Copia un archivo a una nueva ubicación."""
+    try:
+        socket_vinculado = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket_vinculado.bind(('0.0.0.0', 0))
+        socket_vinculado.listen(1)
+
+        socket_salida = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        entrada_paquete = [None]
+
+        def aceptar_conexion():
+            entrada_paquete[0] = socket_vinculado.accept()[0]
+
+        threading.Thread(target=aceptar_conexion, args=()).start()
+
+        socket_salida.connect((obtener_ip_host(), socket_vinculado.getsockname()[1]))
+
+        time.sleep(1)
+        socket_vinculado.close()
+        socket_entrada = entrada_paquete[0]
+
+        finalizado_retr = [False]
+        finalizado_stor = [False]
+
+        def retr():
+            gestionar_comando_descargar_archivo(os.path.basename(archivo_origen), None, socket_entrada, os.path.dirname(archivo_origen))
+            socket_entrada.close()
+            finalizado_retr[0] = True
+
+        def stor():
+            gestionar_comando_subir_archivo(os.path.basename(archivo_destino), None, socket_salida, os.path.dirname(archivo_destino))
+            socket_salida.close()
+            finalizado_stor[0] = True
+
+        threading.Thread(target=retr, args=()).start()
+        threading.Thread(target=stor, args=()).start()
+    
+        while (not finalizado_retr[0]) or (not finalizado_stor[0]):
+            pass
+
+        return True
+    except:
+        return False
+
+def obtener_ip_host():
+    """Obtiene la dirección IP de la máquina local."""
+    try:
+        # Crear un socket UDP
+        socket_udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        # Conectar a un servidor DNS público para determinar la IP local
+        socket_udp.connect(("8.8.8.8", 80))
+        ip_local = socket_udp.getsockname()[0]
+    except Exception as e:
+        print(f"Error al obtener la IP: {e}")
+        ip_local = None  # Manejo de errores para devolver None si falla
+    finally:
+        socket_udp.close()  # Asegurarse de cerrar el socket
+
+    return ip_local
+
+def duplicar_carpeta(origen_carpeta, destino_carpeta):
+    """Crea una copia de una carpeta en una nueva ubicación."""
+    gestionar_comando_crear_directorio(os.path.basename(destino_carpeta), None, os.path.dirname(destino_carpeta))
+
+    try:
+        nodo_ip, nodo_puerto = None, None
+
+        # Obtener el nodo de almacenamiento
+        while nodo_ip is None or nodo_puerto is None:
+            nodo_ip, nodo_puerto = obtener_nodo_almacenamiento()
+
+        # Buscar el sucesor de la carpeta
+        try:
+            nodo_ip, nodo_puerto = encontrar_sucesor(origen_carpeta, nodo_ip, nodo_puerto)
+        except:
+            return duplicar_carpeta(origen_carpeta, destino_carpeta)
+
+        # Conectar al nodo correspondiente
+        socket_nodo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket_nodo.connect((nodo_ip, nodo_puerto))
+        
+        print(f"Conectado a {nodo_ip}:{nodo_puerto}")
+        
+        # Enviar comando para leer el contenido de la carpeta
+        socket_nodo.sendall(f"LEER {origen_carpeta}".encode())
+
+        respuesta = socket_nodo.recv(1024).decode().strip()
+        print(respuesta)
+
+        socket_nodo.close()
+
+        if respuesta.startswith("220"):
+            lineas = respuesta[4:].split("\n")
+            cantidad_carpetas = int(lineas[0])
+
+            subcarpetas = lineas[1:cantidad_carpetas + 1] if cantidad_carpetas > 0 else []
+            archivos = lineas[cantidad_carpetas + 1:] if len(lineas) > cantidad_carpetas + 1 else []
+
+            for subcarpeta in subcarpetas:
+                print(f"Duplicar {subcarpeta} a {os.path.join(destino_carpeta, os.path.basename(subcarpeta))}")
+
+                if not duplicar_carpeta(subcarpeta, os.path.join(destino_carpeta, os.path.basename(subcarpeta))):
+                    return False
+                
+            for archivo in archivos:
+                print(f"Duplicar {archivo} a {os.path.join(destino_carpeta, os.path.basename(archivo))}")
+                
+                if not duplicar_archivo(archivo, os.path.join(destino_carpeta, os.path.basename(archivo))):
+                    return False    
+                
+            return True
+
+    except Exception as e:
+        print(f"Error: {e}")
+        return False
+
+def gestionar_comando_eliminar_directorio(nombre_directorio, socket_cliente, directorio_actual, nodo_ip=None, nodo_puerto=None):
+    """Responde al comando RMD; busca el nodo donde debe estar el directorio solicitado y lo elimina si lo encuentra."""
+    ruta_directorio = os.path.normpath(os.path.join(directorio_actual, nombre_directorio))
+
+    try:
+        # Obtener nodo de almacenamiento si no se proporciona
+        while nodo_ip is None or nodo_puerto is None:
+            nodo_ip, nodo_puerto = obtener_nodo_almacenamiento()
+
+        try:
+            nodo_ip, nodo_puerto = encontrar_sucesor(ruta_directorio, nodo_ip, nodo_puerto)
+        except Exception:
+            gestionar_comando_eliminar_directorio(nombre_directorio, socket_cliente, directorio_actual)
+            return
+
+        # Conectar al nodo
+        socket_nodo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket_nodo.connect((nodo_ip, nodo_puerto))
+
+        print(f"Conectado a {nodo_ip}:{nodo_puerto}")
+        
+        # Enviar comando para eliminar directorio
+        socket_nodo.sendall(f"RMD {ruta_directorio}".encode())
+        respuesta = socket_nodo.recv(1024).decode().strip()
+
+        if respuesta.startswith("220"):
+            socket_nodo.close()
+            lineas = respuesta[4:].split("\n")
+            contador_directorios = int(lineas[0])
+
+            directorios = lineas[1:contador_directorios + 1] if contador_directorios > 0 else []
+            archivos = lineas[contador_directorios + 1:] if len(lineas) > contador_directorios + 1 else []
+
+            # Eliminar subdirectorios
+            for directorio in directorios:
+                print(f"RMD {directorio}")
+                gestionar_comando_eliminar_directorio(directorio, None, os.path.normpath(os.path.dirname(directorio)))
+                
+            # Eliminar archivos en el directorio
+            for archivo in archivos:
+                print(f"DELE {archivo}")
+                gestionar_comando_eliminar_archivo(archivo, None, os.path.normpath(os.path.dirname(archivo)))
+
+            # Eliminar el directorio principal
+            if enviar_comando_eliminar_dir(ruta_directorio, directorio_actual) and socket_cliente:
+                socket_cliente.send(f'250 "{ruta_directorio}" eliminado.\r\n'.encode())
+
+        elif respuesta.startswith("550"):
+            ip, puerto = respuesta.split(" ")[1].split(":")
+            socket_nodo.close()
+            gestionar_comando_eliminar_directorio(nombre_directorio, socket_cliente, directorio_actual, ip, int(puerto))
+            return
+        
+        else:
+            if socket_cliente:
+                socket_cliente.send(b"550 El directorio no existe.\r\n")
+
+    except Exception as e:
+        print(f"Error: {e}")
+        if socket_cliente:
+            socket_cliente.send(b"451 Accion solicitada abortada: error local en el procesamiento.\r\n")
+
+def gestionar_comando_crear_directorio(nombre_directorio, socket_cliente, directorio_actual, nodo_ip=None, nodo_puerto=None):
+    """Responde al comando MKD; crea un nuevo directorio en el servidor en la ruta actual con el nombre especificado en nombre_directorio.
+       Esta información se almacena en el nodo adecuado."""
+    ruta_nuevo_directorio = os.path.normpath(os.path.join(directorio_actual, nombre_directorio))
+
+    try:
+        # Obtener nodo de almacenamiento si no se proporciona
+        while nodo_ip is None or nodo_puerto is None:
+            nodo_ip, nodo_puerto = obtener_nodo_almacenamiento()
+
+        try:
+            nodo_ip, nodo_puerto = encontrar_sucesor(ruta_nuevo_directorio, nodo_ip, nodo_puerto)
+        except Exception:
+            gestionar_comando_crear_directorio(nombre_directorio, socket_cliente, directorio_actual)
+            return
+
+        # Conectar al nodo
+        socket_nodo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket_nodo.connect((nodo_ip, nodo_puerto))
+        
+        print(f"Conectado a {nodo_ip}:{nodo_puerto}")
+        
+        # Enviar comando para crear directorio
+        socket_nodo.sendall(f"MKD {ruta_nuevo_directorio}".encode())
+        respuesta = socket_nodo.recv(1024).decode().strip()
+
+        if respuesta.startswith("220"):
+            socket_nodo.close()
+
+            # Enviar comando para almacenar información del directorio
+            if registrar_archivo_stor(nombre_directorio, f"drwxr-xr-x 1 0 0 0 {datetime.now().strftime('%b %d %H:%M')} {os.path.basename(nombre_directorio)}", directorio_actual):
+                if socket_cliente:
+                    socket_cliente.send(f'257 "{ruta_nuevo_directorio}" creado.\r\n'.encode())
+            else:
+                if socket_cliente:
+                    socket_cliente.send(b"451 Accion solicitada abortada: error local en el procesamiento.\r\n")
+
+        elif respuesta.startswith("550"):
+            ip, puerto = respuesta.split(" ")[1].split(":")
+            socket_nodo.close()
+            gestionar_comando_crear_directorio(nombre_directorio, socket_cliente, directorio_actual, ip, int(puerto))
+            return
+        
+        else:
+            if socket_cliente:
+                socket_cliente.send(b"550 El directorio ya existe.\r\n")
+
+    except Exception as e:
+        print(f"Error: {e}")
+        if socket_cliente:
+            socket_cliente.send(b"451 Accion solicitada abortada: error local en el procesamiento.\r\n")
+
 def gestionar_comando_sistema(socket_cliente):
     """Responde al comando SYST, indicando el tipo de sistema operativo del servidor."""
-    socket_cliente.send(b'215 UNIX Type: L8\r\n')
+    sistema_operativo = platform.system()  # Obtiene el sistema operativo
+    version = platform.release()            # Obtiene la versión del sistema operativo
+    
+    # Formato de respuesta personalizado
+    respuesta = f'215 {sistema_operativo} Type: {version}\r\n'
+    socket_cliente.send(respuesta.encode())
 
 def gestionar_comando_pwd(socket_cliente, directorio_actual):
     """Responde al comando PWD, enviando el directorio de trabajo actual."""
@@ -395,12 +1000,123 @@ def gestionar_comando_listado_directorio(socket_cliente, socket_datos, comando, 
     Responde a los comandos NLST y LIST, enviando la lista de archivos en el directorio actual.
     Si se proporciona un socket de datos, se envía el listado a través de él.
     """
-    if socket_datos:
-        argumentos = comando.split()
-        directorio = directorio_actual if len(argumentos) == 1 else os.path.normpath(argumentos[1])
-        enviar_listado_directorio(socket_cliente, socket_datos, directorio)
-        socket_datos.close()
+    if not socket_datos:
+        return  # Si no hay socket de datos, no hacemos nada
 
+    # Procesar el comando y determinar el directorio
+    argumentos = comando.split()
+    if len(argumentos) == 1:
+        directorio = directorio_actual
+    else:
+        directorio = os.path.normpath(argumentos[1])
+    
+    # Enviar el listado del directorio
+    enviar_listado_directorio(socket_cliente, socket_datos, directorio)
+    
+    # Cerrar el socket de datos
+    try:
+        socket_datos.close()
+    except Exception as e:
+        print(f"Error al cerrar el socket de datos: {e}")
+
+def enviar_listado_directorio(socket_cliente, socket_datos, directorio_actual, nodo_ip=None, nodo_puerto=None):
+
+    try:
+        # Asegurarse de obtener la dirección del nodo
+        while nodo_ip is None or nodo_puerto is None:
+            nodo_ip, nodo_puerto = obtener_nodo_almacenamiento()
+
+        # Encontrar el sucesor del directorio actual
+        try:
+            nodo_ip, nodo_puerto = encontrar_sucesor(directorio_actual, nodo_ip, nodo_puerto)
+        except:
+            enviar_listado_directorio(socket_cliente, socket_datos, directorio_actual)
+            return
+
+        # Crear socket para conectarse al nodo
+        socket_nodo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        socket_nodo.connect((nodo_ip, nodo_puerto))
+        
+        print(f"Conectado a {nodo_ip}:{nodo_puerto}")
+        
+        socket_nodo.sendall(f"LIST {directorio_actual}".encode())
+
+        respuesta = socket_nodo.recv(1024).decode().strip()
+
+        if respuesta.startswith("220"):
+            socket_cliente.send(b"150 Aqui viene el listado del directorio.\r\n")
+
+            direcciones = respuesta[4:].split(" ") if len(respuesta) > 4 else []
+            nodos_auxiliares = [(direccion.split(":")[0], int(direccion.split(":")[1])) for direccion in direcciones]
+
+            socket_nodo.send(b"220 Ok")
+
+            datos = ""
+
+            while True:
+                try:
+                    trozo = socket_nodo.recv(4096).decode('utf-8')
+                except:
+                    if not nodos_auxiliares:
+                        socket_nodo.close()
+                        socket_cliente.send(b"451 Solicitud abortada: error local en el procesamiento.\r\n")
+                        return
+
+                    # Cambiar al siguiente nodo auxiliar si hay errores
+                    while nodos_auxiliares:
+                        socket_nodo.close()
+                        ip, puerto = nodos_auxiliares.pop(0)
+
+                        socket_nodo = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+                        try:
+                            socket_nodo.connect((ip, puerto))
+                            print(f"Conectado auxiliar a {ip}:{puerto}")
+            
+                            socket_nodo.sendall(f"LIST {directorio_actual}".encode())
+                            respuesta = socket_nodo.recv(1024).decode().strip()
+
+                            if respuesta.startswith("220"):
+                                direcciones = respuesta[4:].split(" ") if len(respuesta) > 4 else []
+                                nodos_auxiliares += [(direccion.split(":")[0], int(direccion.split(":")[1])) for direccion in direcciones]
+                                
+                                socket_nodo.send(b"220 Ok")
+
+                                datos = ""
+                                break
+
+                            elif respuesta.startswith("550"):
+                                ip, puerto = respuesta.split(" ")[1].split(":")
+                                nodos_auxiliares.append((ip, int(puerto)))
+
+                        except:
+                            pass
+
+                    continue
+
+                if trozo:
+                    datos += trozo
+                else:
+                    break
+            
+            socket_datos.sendall(datos.encode('utf-8'))
+
+            socket_nodo.close()
+            socket_cliente.send(b"226 Transferencia de directorio completada.\r\n")
+            print("Transferencia completa")
+
+        elif respuesta.startswith("550"):
+            ip, puerto = respuesta.split(" ")[1].split(":")
+            socket_nodo.close()
+            enviar_listado_directorio(socket_cliente, socket_datos, directorio_actual, ip, int(puerto))
+            return
+        
+        else:
+            socket_cliente.send(b"550 Fallo al listar el directorio.\r\n")
+
+    except Exception as e:
+        print(f"Error: {e}")
+        socket_cliente.send(b"451 Solicitud abortada: error local en el procesamiento.\r\n")
 
 def manejar_conexiones_entrantes(servidor_socket):
     """
