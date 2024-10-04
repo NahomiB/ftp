@@ -40,4 +40,36 @@ El sistema será evaluado utilizando el cliente FTP estándar Filezilla para gar
 
 Otra área importante de evaluación es la escalabilidad del sistema. Se añadieron y eliminaron nodos dinámicamente para verificar que el sistema puede adaptarse a cambios en la topología sin interrumpir el servicio o perder datos. El proceso de enrutamiento y replicación fue monitoreado para asegurar que el sistema distribuye las cargas de manera eficiente y mantiene un alto rendimiento, independientemente del número de nodos en la red.
 
+## Comandos FTP Disponibles
+
+En el sistema FTP distribuido se emplean varios comandos que permiten la interacción entre el cliente y los nodos. Estos comandos se utilizan para gestionar la transferencia de archivos, verificar el estado del sistema, navegar por el directorio y realizar diversas operaciones que permiten una correcta operación del sistema. A continuación, se detallan los comandos más comunes, explicando su función dentro del sistema:
+
+**Comando USER:** Este comando se utiliza al inicio de una sesión FTP para que el cliente envíe su nombre de usuario al servidor. Es el primer paso en el proceso de autenticación. El sistema recibe el nombre de usuario y lo utiliza para verificar si existe una cuenta asociada. Si el usuario es válido, el servidor solicitará la contraseña con el comando correspondiente.
+
+**Comando PASS:** Una vez que el servidor ha recibido el nombre de usuario, solicita la contraseña a través del comando PASS. El cliente envía su contraseña en texto claro, por lo que el uso de FTP estándar no se considera seguro para transferencias sensibles. Sin embargo, este sistema FTP distribuido puede complementarse con medidas adicionales de seguridad, como la encriptación de la conexión mediante TLS, para proteger las credenciales.
+
+**Comando RETR:** Este comando es utilizado para descargar un archivo desde el servidor hacia el cliente. Cuando el cliente envía el comando RETR junto con el nombre del archivo, el nodo responsable de almacenar el archivo lo envía de vuelta al cliente. En el sistema distribuido, si el nodo que recibe la solicitud no tiene el archivo, redirige la solicitud al nodo correcto, asegurando así la disponibilidad del archivo.
+
+**Comando STOR:** El comando STOR permite al cliente subir un archivo desde su máquina local al servidor. El archivo es recibido por el nodo que gestionará su almacenamiento y se replicará automáticamente en varios nodos sucesores para garantizar su disponibilidad. La replicación asegura que, incluso si el nodo original falla, las copias del archivo estén accesibles desde otros nodos en la red.
+
+**Comando LIST:** Este comando devuelve al cliente una lista de los archivos y directorios disponibles en el servidor. El cliente puede enviar el comando LIST para obtener un listado del contenido de un directorio específico, o de todo el sistema de archivos si no se especifica un directorio en particular. La respuesta incluye información básica sobre cada archivo, como su nombre, tamaño y fecha de modificación.
+
+**Comando PWD:** El comando PWD es utilizado para mostrar el directorio de trabajo actual del cliente en el servidor. El cliente puede enviar este comando en cualquier momento para conocer su posición dentro de la jerarquía de directorios del servidor. En respuesta, el servidor envía la ruta completa del directorio actual.
+
+**Comando CWD:** Con el comando CWD, el cliente puede cambiar el directorio de trabajo en el servidor. El cliente debe especificar la ruta del nuevo directorio al que desea acceder. Una vez recibido el comando, el nodo verifica la existencia del directorio y, si es válido, cambia la ruta de trabajo a la solicitada, permitiendo al cliente realizar operaciones en el nuevo directorio.
+
+**Comando QUIT:** Este comando finaliza la sesión FTP entre el cliente y el servidor. Cuando el cliente ya no necesita interactuar con el sistema, envía el comando QUIT para cerrar la conexión de manera ordenada. El nodo que recibe el comando libera los recursos asociados a la sesión y confirma la finalización de la misma.
+
+**Comando MKD:** El comando MKD permite al cliente crear un nuevo directorio en el servidor. El cliente envía el nombre del nuevo directorio y el servidor verifica que no exista un directorio con el mismo nombre en la ruta especificada. Si todo es correcto, el directorio es creado, permitiendo al cliente organizar sus archivos de manera estructurada.
+
+**Comando DELE:** Este comando es utilizado para eliminar un archivo del servidor. El cliente debe proporcionar el nombre del archivo que desea eliminar. El nodo que almacena el archivo verifica si el cliente tiene los permisos necesarios y, si es así, elimina el archivo y todas sus réplicas en los nodos sucesores.
+
+**Comando RMD:** El comando RMD es similar al comando DELE, pero está destinado a la eliminación de directorios. Si el cliente quiere eliminar un directorio, puede usar este comando, siempre que el directorio esté vacío. Si el directorio contiene archivos o subdirectorios, primero deberán ser eliminados antes de poder eliminar el directorio.
+
+**Comando RNFR:** Estos comandos se utilizan en conjunto para renombrar un archivo o directorio en el servidor. El cliente primero envía el comando RNFR para especificar el nombre del archivo o directorio actual. A continuación, el cliente envía el comando RNTO con el nuevo nombre deseado. Si todo es correcto, el servidor realiza el cambio de nombre.
+
+**Comando SYST**: Este comando devuelve información sobre el sistema operativo en el que se ejecuta el servidor FTP. Aunque no es esencial para la mayoría de las operaciones, algunos clientes utilizan esta información para adaptar su comportamiento según las características del sistema subyacente.
+
+**Comando NOOP**: El comando NOOP no realiza ninguna operación en particular, pero es útil para mantener viva la conexión entre el cliente y el servidor en casos de inactividad prolongada. El cliente puede enviar este comando periódicamente para evitar que el servidor cierre la conexión por inactividad.
+
 ## Instrucciones de utilización
