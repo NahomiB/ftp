@@ -1,6 +1,6 @@
 import threading; 
 from command import (manejar_comando_dele, manejar_comando_dele_dir, manejar_comando_ed, manejar_comando_union, manejar_comando_lista, manejar_comando_mkd, manejar_comando_lectura, manejar_comando_retr, manejar_comando_rmd, manejar_comando_rp, manejar_comando_sp, manejar_comando_ss, manejar_comando_stor, manejar_comando_stor_dir); 
-from table import (manejar_gk_comando, manejar_gs_comando, manejar_ping_comando, solicitud_unir_automatica, NodoDato)
+from table import (manejar_comando_gk, manejar_comando_gs, manejar_comando_ping, solicitud_unirse_automatica, NodoDato)
 
 def manejar_cliente(nodo_dato, socket_cliente):
     """Recibe el comando solicitado por el cliente y realiza la acción correspondiente."""
@@ -12,15 +12,15 @@ def manejar_cliente(nodo_dato, socket_cliente):
 
         # Comandos de mantenimiento de conexión
         if comando.startswith('PING'):
-            manejar_ping_comando(socket_cliente)
+            manejar_comando_ping(socket_cliente)
         
         # Comandos de gestión de claves
         elif comando.startswith('GS'):
             clave = comando[3:].strip()
-            manejar_gs_comando(nodo_dato, int(clave), socket_cliente)
+            manejar_comando_gs(nodo_dato, int(clave), socket_cliente)
 
         elif comando.startswith('GK'):
-            manejar_gk_comando(nodo_dato, socket_cliente)
+            manejar_comando_gk(nodo_dato, socket_cliente)
 
         elif comando.startswith('RP'):
             manejar_comando_rp(nodo_dato, socket_cliente)
@@ -110,7 +110,7 @@ def iniciar_nodo():
     hilo_aceptar_conexiones = threading.Thread(target=aceptar_conexiones, args=(nodo_dato,))
     hilo_aceptar_conexiones.start()
     
-    solicitud_unir_automatica(nodo_dato)
+    solicitud_unirse_automatica(nodo_dato)
 
     while True:
         input("Presiona Enter para continuar...")
