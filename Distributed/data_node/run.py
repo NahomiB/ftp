@@ -4,6 +4,7 @@ sys.path.append('/app')
 sys.path.append('/app/distributed/data_node')
 
 import threading; 
+import time
 from command import (manejar_comando_dele, manejar_comando_dele_dir, manejar_comando_ed, manejar_comando_union, manejar_comando_lista, manejar_comando_mkd, manejar_comando_lectura, manejar_comando_retr, manejar_comando_rmd, manejar_comando_rp, manejar_comando_sp, manejar_comando_ss, manejar_comando_stor, manejar_comando_stor_dir); 
 from table import (manejar_comando_gk, manejar_comando_gs, manejar_comando_ping, solicitud_unirse_automatica, NodoDato)
 
@@ -11,6 +12,9 @@ def manejar_cliente(nodo_dato, socket_cliente):
     """Recibe el comando solicitado por el cliente y realiza la acción correspondiente."""
     try:
         comando = socket_cliente.recv(1024).decode().strip()
+        
+        print("Comando recibido")
+        print(comando)
 
         if nodo_dato.verbose:
             print(f"Comando recibido: {comando}")
@@ -98,6 +102,7 @@ def manejar_cliente(nodo_dato, socket_cliente):
 
 def aceptar_conexiones(nodo_dato):
     """Crea un hilo para aceptar todas las conexiones entrantes."""
+    print("Inicio de aceptar conexiones")
     while True:
         socket_cliente, direccion = nodo_dato.socket.accept()
 
@@ -106,11 +111,12 @@ def aceptar_conexiones(nodo_dato):
 
         hilo_manejar_cliente = threading.Thread(target=manejar_cliente, args=(nodo_dato, socket_cliente,))
         hilo_manejar_cliente.start()
-
-
+        
+        print("Fin de aceptar conexiones")
+        
+        
 def iniciar_nodo():
     nodo_dato = NodoDato()
-    nodo_dato.verbose = False
 
     hilo_aceptar_conexiones = threading.Thread(target=aceptar_conexiones, args=(nodo_dato,))
     hilo_aceptar_conexiones.start()
@@ -131,4 +137,5 @@ def iniciar_nodo():
         print(f"Tabla de dedos (menores): {nodo_dato.tabla_fingers_menor}")
 
 
-iniciar_nodo()
+if __name__ == "__main__":
+    iniciar_nodo()

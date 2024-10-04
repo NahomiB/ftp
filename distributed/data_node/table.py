@@ -42,7 +42,7 @@ class NodoDato:
         
         # Verbosidad
         self.verbose = True
-        self.verbose_actualizacion = False
+        self.verbose_actualizacion = True
         
         # Hilo para el listener de broadcast
         self.hilo_listener_broadcast = threading.Thread(target=escuchador_broadcast, args=(self,))
@@ -147,13 +147,13 @@ def obtener_k_sucesores(nodo_dato: NodoDato):
 
 # Manejar el comando de obtener sucesor
 def manejar_comando_gs(nodo_dato: NodoDato, id_clave, socket_cliente):
-    nodo_dato.predecesor_mutex.acquire()
+    nodo_dato.mutex_predecesor.acquire()
     propietario_clave = (
         nodo_dato.predecesor is None or
         (nodo_dato.predecesor[0] > nodo_dato.identificador and (id_clave <= nodo_dato.identificador or id_clave > nodo_dato.predecesor[0])) or
         (nodo_dato.predecesor[0] < id_clave and id_clave <= nodo_dato.identificador)
     )
-    nodo_dato.predecesor_mutex.release()
+    nodo_dato.mutex_predecesor.release()
 
     if propietario_clave:
         socket_cliente.send(f"220".encode())
@@ -227,13 +227,13 @@ def verificar_sucesor_mas_cercano(nodo_dato: NodoDato):
         sucesor_difundido = difundir_buscar_sucesor(nodo_dato)
 
         if sucesor_difundido:
-            nodo_dato.sucesor_mutex.acquire()  # Adquirir el mutex para acceder al sucesor
+            nodo_dato.mutex_sucesor.acquire()  # Adquirir el mutex para acceder al sucesor
             
             # Actualizar el sucesor si es necesario
             if nodo_dato.sucesor is None or sucesor_difundido[0] < nodo_dato.sucesor[0]:
                 nodo_dato.sucesor = sucesor_difundido
 
-            nodo_dato.sucesor_mutex.release()  # Liberar el mutex
+            nodo_dato.mutex_sucesor.release()  # Liberar el mutex
 
         time.sleep(10)  # Esperar 10 segundos antes de la siguiente verificación
 
@@ -255,12 +255,12 @@ def verificar_datos_sin_propietarios(nodo_dato: NodoDato):
             for clave, valor in items:
                 id_clave = funcion_hash(clave)
 
-                nodo_dato.predecesor_mutex.acquire()  # Adquirir mutex para acceder al predecesor
+                nodo_dato.mutex_predecesor.acquire()  # Adquirir mutex para acceder al predecesor
                 es_propietario_clave = (nodo_dato.predecesor is None or 
                                         (nodo_dato.predecesor[0] > nodo_dato.identificador and 
                                         (id_clave <= nodo_dato.identificador or id_clave > nodo_dato.predecesor[0])) or 
                                         (nodo_dato.predecesor[0] < id_clave and id_clave <= nodo_dato.identificador))
-                nodo_dato.predecesor_mutex.release()  # Liberar mutex
+                nodo_dato.mutex_predecesor.release()  # Liberar mutex
 
                 if not es_propietario_clave:
                     try:
@@ -343,9 +343,9 @@ def verificar_sucesores(nodo_dato: NodoDato):
     try:
         nuevos_sucesores = []
 
-        nodo_dato.sucesor_mutex.acquire()
+        nodo_dato.mutex_sucesor.acquire()
         lista_sucesores = [nodo_dato.sucesor] + nodo_dato.sucesores if nodo_dato.sucesor else nodo_dato.sucesores
-        nodo_dato.sucesor_mutex.release()
+        nodo_dato.mutex_sucesor.release()
         
         # Encontrar el primer sucesor activo
         for sucesor in lista_sucesores:
@@ -357,9 +357,9 @@ def verificar_sucesores(nodo_dato: NodoDato):
             sucesor = difundir_buscar_sucesor(nodo_dato)
 
             if sucesor is not None:
-                nodo_dato.sucesor_mutex.acquire()
+                nodo_dato.mutex_sucesor.acquire()
                 nodo_dato.sucesor = sucesor
-                nodo_dato.sucesor_mutex.release()
+                nodo_dato.mutex_sucesor.release()
 
                 return verificar_sucesores(nodo_dato)
 
@@ -377,9 +377,9 @@ def verificar_sucesores(nodo_dato: NodoDato):
 
             return True
         
-        nodo_dato.predecesor_mutex.acquire()
+        nodo_dato.mutex_predecesor.acquire()
         id_predecesor = nodo_dato.predecesor[0] if nodo_dato.predecesor else nuevos_sucesores[0][0]
-        nodo_dato.predecesor_mutex.release()
+        nodo_dato.mutex_predecesor.release()
 
         # Completar la lista de sucesores hasta k
         while len(nuevos_sucesores) < nodo_dato.k_sucesores:
@@ -574,11 +574,18 @@ def actualizar(nodo_dato: NodoDato):
 
     while not nodo_dato.detener_actualizacion:
         
+        print("Dentro de actualizar")
+        
         nodo_dato.mutex_union.acquire()
 
         if verificar_sucesores(nodo_dato):
             if actualizar_tabla_finger(nodo_dato):
+                print("Dentro de actualizar tabla finger")
+                
                 if not nodo_dato.termino_primera_actualizacion:
+                    
+                    print("Dentro de primera actualizacion")
+                    
                     nodo_dato.termino_primera_actualizacion = True
                     nodo_dato.hilo_listener_broadcast.start()
                     nodo_dato.hilo_verificar_datos_no_poseidos.start()
@@ -605,8 +612,6 @@ def solicitud_unirse_automatica(nodo_dato: NodoDato, indice=0):
     else:
         if nodo_dato.verbose:
             print("Todas las IPs predeterminadas fallaron, intentando usar Broadcast...")
-        else:
-            print("Usando broadcast para unirse")
         
         solicitud_unirse_broadcast(nodo_dato)
 
@@ -630,13 +635,16 @@ def escuchador_broadcast(nodo_dato: NodoDato):
                     
                     datos_solicitud = json.loads(datos.decode().strip())
                     accion = datos_solicitud.get('action')
-
+                    
                     if accion == 'report':
+                        
                         datos_respuesta = json.dumps({
                             'action': 'reporting',
-                            'ip': NodoDato.host,
-                            'port': NodoDato.puerto
+                            'ip': nodo_dato.host,
+                            'port': nodo_dato.puerto
                         })
+                        
+                        print("Enviando respuesta")
                         
                         sock.sendto(datos_respuesta.encode(), direccion)
 
@@ -692,9 +700,6 @@ def solicitud_unirse_broadcast(nodo_dato: NodoDato):
 
 def request_join(nodo_dato: NodoDato, ip_nodo, puerto_nodo):
     """Función para unirse a un nodo existente en la red."""
-    # Implementación de la función request_join aquí.
-
-    """Request to join a node (nodo_dato) to the DHT of a node (node_ip, node_port)"""
     
     node_ip, node_port = encontrar_sucesor(obtener_id(nodo_dato.host, nodo_dato.puerto), node_ip, node_port, verbose=nodo_dato.verbose)
 
@@ -722,9 +727,9 @@ def request_join(nodo_dato: NodoDato, ip_nodo, puerto_nodo):
             predecessor_ip, predecessor_port = response[4:].split(":")
             predecessor_port = int(predecessor_port)
 
-            nodo_dato.predecesor_mutex.acquire()
+            nodo_dato.mutex_predecesor.acquire()
             nodo_dato.predecesor = (obtener_id(predecessor_ip, predecessor_port)), predecessor_ip, predecessor_port
-            nodo_dato.predecesor_mutex.release()
+            nodo_dato.mutex_predecesor.release()
 
             node_socket.send(f"220".encode())
 

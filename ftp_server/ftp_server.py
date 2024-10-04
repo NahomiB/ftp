@@ -18,7 +18,7 @@ NUMERO_DE_ESCUCHAS = 5
 transferencia_en_progreso = False
 cierre_en_progreso = False
 
-nodos_almacenamiento = [('172.17.0.2',34589), (' 172.17.0.3',43283)]
+nodos_almacenamiento = [('172.17.0.2',43855), ('172.17.0.3',46181)]
 actualizando_nodos = False
 contando_lecturas = 0
 bloqueo_lectura = threading.Lock()
@@ -53,7 +53,7 @@ def obtener_nodo_almacenamiento():
 def difundir_nodo_almacenamiento():
     ip_difusion = '<broadcast>'
     puerto_difusion = 37020
-    mensaje = json.dumps({'accion': 'reportar'})
+    mensaje = json.dumps({'accion': 'report'})
     
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP) as sock:
         sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
@@ -69,7 +69,7 @@ def difundir_nodo_almacenamiento():
                     respuesta, _ = sock.recvfrom(1024)
                     datos_respuesta = json.loads(respuesta.decode())
                     
-                    if datos_respuesta.get('accion') == 'reportando':
+                    if datos_respuesta.get('accion') == 'reporting':
                         ip = datos_respuesta.get('ip')
                         puerto = datos_respuesta.get('puerto')
 

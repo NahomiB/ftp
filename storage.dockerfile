@@ -15,4 +15,4 @@ VOLUME /data
 # Expone el puerto
 EXPOSE 50
 
-CMD ["python", "-m", "data_node"]
+CMD ["python", "distributed/data_node/run.py"]

@@ -14,6 +14,6 @@ ENV PYTHONPATH=/app/distributed
 VOLUME /data
 
 # Expone el puerto
-EXPOSE 50
+EXPOSE 21
 
 CMD ["python", "ftp_server.py"]
