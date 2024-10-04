@@ -8,7 +8,7 @@ import threading
 import time
 import uuid
 
-from distributed.data_node.utils import encontrar_sucesor, hacer_ping_nodo
+from distributed.data_node.utils import encontrar_sucesor, hacer_ping_nodo, obtener_ip_host
 
 
 # Constantes de manejo del servidor
@@ -1267,7 +1267,7 @@ def iniciar_servidor_ftp():
     servidor_socket = configurar_socket_servidor()
     
     # Lanza un hilo separado para mantener la lista de nodos de almacenamiento actualizada
-    hilo_nodos_almacenamiento = threading.Thread(target=actualizar_nodos_almacenamiento)
+    hilo_nodos_almacenamiento = threading.Thread(target=actualizar_lista_nodos_almacenamiento)
     hilo_nodos_almacenamiento.daemon = True  # Hace que el hilo termine cuando el programa termina
     hilo_nodos_almacenamiento.start()
     
